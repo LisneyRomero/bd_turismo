@@ -270,9 +270,9 @@ public class frmPaquetes extends JFrame {
 		btnLimpiar.setBounds(319, 322, 40, 33);
 		contentPane.add(btnLimpiar);
 		
-		JButton btnMenu_1 = new JButton("");
-		btnMenu_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnMenu_1.addMouseListener(new MouseAdapter() {
+		JButton btnMenu = new JButton("");
+		btnMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnMenu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
@@ -281,12 +281,12 @@ public class frmPaquetes extends JFrame {
 				
 			}
 		});
-		btnMenu_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
-		btnMenu_1.setFocusable(false);
-		btnMenu_1.setContentAreaFilled(false);
-		btnMenu_1.setBorder(null);
-		btnMenu_1.setBounds(0, 0, 40, 39);
-		contentPane.add(btnMenu_1);
+		btnMenu.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu.setFocusable(false);
+		btnMenu.setContentAreaFilled(false);
+		btnMenu.setBorder(null);
+		btnMenu.setBounds(0, 0, 40, 39);
+		contentPane.add(btnMenu);
 		
 		JLabel lblCodigo = new JLabel("Codigo:");
 		lblCodigo.setBounds(27, 378, 53, 14);

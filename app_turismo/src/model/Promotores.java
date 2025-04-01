@@ -143,5 +143,32 @@ public class Promotores {
 	
 	
 	}
-	
+	//Eliminar registros 
+			public void delete(int idpromotores) {
+				
+				Connection dbConnection = null;
+				PreparedStatement pst = null; //Preparar la trx
+				
+				String script = "DELETE FROM tblpromotores WHERE idpromotores = ?";
+				
+				try { 
+					dbConnection = conector.conectarBD(); //abrir la conexion
+					pst = dbConnection.prepareStatement(script); //abrir el buffer
+					
+					//parametrizar el campo
+					pst.setInt(1 , idpromotores);
+					
+					//confirmar la operacion
+					int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idpromotores +"?");
+					
+					if (resp == JOptionPane.OK_OPTION) {
+						//ejecutar la Trx
+						pst.executeUpdate();
+						JOptionPane.showMessageDialog(null, "Registro No. " + idpromotores + " eliminado");			
+				}
+					}catch (SQLException e) {
+						System.out.println(e.getMessage());
+					}
+				
+			}
 }

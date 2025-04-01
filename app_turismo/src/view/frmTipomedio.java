@@ -41,7 +41,7 @@ public class frmTipomedio extends JFrame {
 	private JTextField txtObservaciones;
 	private JTextField txtNombre;
 	private static frmTipomedio instancia;
-
+	Tipomedio cr = new Tipomedio();
 	/**
 	 * Launch the application.
 	 */
@@ -69,7 +69,9 @@ public class frmTipomedio extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		
+		this.setLocationRelativeTo(null);//centrar el formulario
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -95,7 +97,7 @@ public class frmTipomedio extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				Tipomedio cr = new Tipomedio();
+				
 				cr.create(txtNombre.getText(), txtObservaciones.getText());
 				
 						
