@@ -24,6 +24,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
@@ -37,6 +39,7 @@ public class frmAgencias extends JFrame {
 	private JTextField txtCorreo;
 	private JTextField txtWeb;
 	private JTextField txtCompania;
+	private static frmAgencias instancia;
 
 	/**
 	 * Launch the application.
@@ -45,8 +48,7 @@ public class frmAgencias extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmAgencias frame = new frmAgencias();
-					frame.setVisible(true);
+					frmAgencias.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -59,7 +61,7 @@ public class frmAgencias extends JFrame {
 	 */
 	public frmAgencias() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\agencia-de-viajes.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 339, 518);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
@@ -183,5 +185,41 @@ public class frmAgencias extends JFrame {
 		btnLimpiar.setBackground(new Color(240, 234, 244));
 		btnLimpiar.setBounds(116, 422, 91, 29);
 		contentPane.add(btnLimpiar);
-	}
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+				
+			}
+		});
+		btnMenu.setBounds(17, 445, 89, 23);
+		contentPane.add(btnMenu);
+		
+		
+		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
+
+			public void windowClosing(WindowEvent e) { 
+
+			instancia = null; 
+
+			} 
+
+		}); 
+
+	}		 	 
+			public static frmAgencias getInstancia() {// se cambia al nombre correspondiente  
+
+			 if (instancia == null) { 
+
+			 instancia = new frmAgencias(); 
+
+			 } 
+
+			 return instancia; 
+
+	 } 
+			
 }

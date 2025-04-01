@@ -22,6 +22,8 @@ import javax.swing.border.BevelBorder;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class frmPromotores extends JFrame {
 
@@ -36,6 +38,7 @@ public class frmPromotores extends JFrame {
 	private JTextField txtCorreoCorp;
 	private JTextField txtFecha;
 	private JTextField txtTelefono;
+	private static frmPromotores instancia;
 
 	/**
 	 * Launch the application.
@@ -44,8 +47,7 @@ public class frmPromotores extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmPromotores frame = new frmPromotores();
-					frame.setVisible(true);
+					frmPromotores.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,7 +60,7 @@ public class frmPromotores extends JFrame {
 	 */
 	public frmPromotores() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\agregar-contacto.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 551);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
@@ -178,10 +180,7 @@ public class frmPromotores extends JFrame {
 				
 				cr.create(Integer.parseInt(txtTipoDoc.getText()), Integer.parseInt(txtDoc.getText())  ,  txtNombre.getText()
 						,  txtApellido.getText(),txtDireccion.getText(),  txtCorreo.getText(),  txtCorreoCorp.getText()
-						,  txtFecha.getText(),  txtTelefono.getText());
-				
-				
-				
+						,  txtFecha.getText(),  txtTelefono.getText());	
 				
 				
 				
@@ -218,6 +217,41 @@ public class frmPromotores extends JFrame {
 		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\boton-eliminar.png"));
 		btnLimpiar.setBounds(161, 456, 111, 33);
 		contentPane.add(btnLimpiar);
-	}
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+				
+			}
+		});
+		btnMenu.setBounds(23, 478, 89, 23);
+		contentPane.add(btnMenu);
+	
+		
+		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
 
+			public void windowClosing(WindowEvent e) { 
+
+			instancia = null; 
+
+			} 
+
+		}); 
+
+	}		 	 
+			public static frmPromotores getInstancia() {// se cambia al nombre correspondiente  
+
+			 if (instancia == null) { 
+
+			 instancia = new frmPromotores(); 
+
+			 } 
+
+			 return instancia; 
+
+	 } 
+			
 }

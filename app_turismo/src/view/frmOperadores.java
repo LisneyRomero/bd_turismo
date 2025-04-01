@@ -23,6 +23,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -38,6 +40,7 @@ public class frmOperadores extends JFrame {
 	private JTextField txtCorreo;
 	private JTextField txtIdVehiculo;
 	private JTextField txtTelefono;
+	private static frmOperadores instancia;
 
 	/**
 	 * Launch the application.
@@ -46,8 +49,7 @@ public class frmOperadores extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmOperadores frame = new frmOperadores();
-					frame.setVisible(true);
+					frmOperadores.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -61,7 +63,7 @@ public class frmOperadores extends JFrame {
 	public frmOperadores() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\agregar-contacto.png"));
 		setTitle("Registro de Operadores");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 451, 464);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
@@ -207,7 +209,44 @@ public class frmOperadores extends JFrame {
 		btnLimpiar.setBackground(new Color(240, 234, 244));
 		btnLimpiar.setBounds(162, 377, 111, 33);
 		contentPane.add(btnLimpiar);
-		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblTitle, lbltipoDocumento, txtTipoDoc, lblDocumento, txtDocumento, lblNombre, txtNombre, lblApellido, txtApellido, lblDireccion, txtDireccion, lblCorreo, txtCorreo, txtTelefono, lblTelefono, lblIdvehiculo, txtIdVehiculo, btnRegistrar, btnLimpiar}));
-	}
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+				frmMenu.getInstancia().setVisible(true);
+				
+			}
+		});
+		btnMenu.setBounds(23, 391, 89, 23);
+		contentPane.add(btnMenu);
+		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblTitle, lbltipoDocumento, txtTipoDoc, lblDocumento, txtDocumento, lblNombre, txtNombre, lblApellido, txtApellido, lblDireccion, txtDireccion, lblCorreo, txtCorreo, txtTelefono, lblTelefono, lblIdvehiculo, txtIdVehiculo, btnRegistrar, btnLimpiar, btnMenu}));
+	
+		
+		
+		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
 
+			public void windowClosing(WindowEvent e) { 
+
+			instancia = null; 
+
+			} 
+
+		}); 
+
+	}		 	 
+			public static frmOperadores getInstancia() {// se cambia al nombre correspondiente  
+
+			 if (instancia == null) { 
+
+			 instancia = new frmOperadores(); 
+
+			 } 
+
+			 return instancia; 
+
+	 } 
+			
 }

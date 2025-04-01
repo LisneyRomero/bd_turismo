@@ -20,6 +20,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class frmMedios extends JFrame {
 
@@ -28,6 +30,7 @@ public class frmMedios extends JFrame {
 	private JTextField txtNombre;
 	private JTextField txtObservaciones;
 	private JTextField txtTipo;
+	private static frmMedios instancia;
 
 	/**
 	 * Launch the application.
@@ -36,8 +39,7 @@ public class frmMedios extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmMedios frame = new frmMedios();
-					frame.setVisible(true);
+					frmMedios.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,7 +51,7 @@ public class frmMedios extends JFrame {
 	 * Create the frame.
 	 */
 	public frmMedios() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 386, 406);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
@@ -113,6 +115,42 @@ public class frmMedios extends JFrame {
 		txtTipo.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtTipo.setBounds(133, 202, 174, 20);
 		contentPane.add(txtTipo);
-	}
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+				
+				
+			}
+		});
+		btnMenu.setBounds(10, 333, 89, 23);
+		contentPane.add(btnMenu);
+	
+		
+		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
 
+			public void windowClosing(WindowEvent e) { 
+
+			instancia = null; 
+
+			} 
+
+		}); 
+
+	}		 	 
+			public static frmMedios getInstancia() {// se cambia al nombre correspondiente  
+
+			 if (instancia == null) { 
+
+			 instancia = new frmMedios(); 
+
+			 } 
+
+			 return instancia; 
+
+	 } 
+			
 }

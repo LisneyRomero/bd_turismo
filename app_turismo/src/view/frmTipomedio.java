@@ -28,6 +28,9 @@ import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.ImageIcon;
 import java.awt.Font;
 
@@ -37,6 +40,7 @@ public class frmTipomedio extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtObservaciones;
 	private JTextField txtNombre;
+	private static frmTipomedio instancia;
 
 	/**
 	 * Launch the application.
@@ -45,8 +49,7 @@ public class frmTipomedio extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmTipomedio frame = new frmTipomedio();
-					frame.setVisible(true);
+					frmTipomedio.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -61,7 +64,7 @@ public class frmTipomedio extends JFrame {
 		setPreferredSize(new Dimension(1, 1));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\medios-de-comunicacion.png"));
 		setTitle("TIPOS DE MEDIOS");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 331, 338);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
@@ -140,5 +143,40 @@ public class frmTipomedio extends JFrame {
 		btnLimpiar.setBackground(new Color(240, 234, 244));
 		btnLimpiar.setBounds(109, 255, 96, 33);
 		contentPane.add(btnLimpiar);
-	}
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+				
+			}
+		});
+		btnMenu.setBounds(10, 265, 65, 23);
+		contentPane.add(btnMenu);
+
+		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
+
+			public void windowClosing(WindowEvent e) { 
+
+			instancia = null; 
+
+			} 
+
+		}); 
+
+	}		 	 
+			public static frmTipomedio getInstancia() {// se cambia al nombre correspondiente  
+
+			 if (instancia == null) { 
+
+			 instancia = new frmTipomedio(); 
+
+			 } 
+
+			 return instancia; 
+
+	 } 
+			
 }
