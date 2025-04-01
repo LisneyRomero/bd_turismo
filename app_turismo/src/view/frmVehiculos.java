@@ -20,6 +20,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.Cursor;
 
 public class frmVehiculos extends JFrame {
@@ -33,6 +35,8 @@ public class frmVehiculos extends JFrame {
 	private JTextField txtMotor;
 	private JTextField txtIdTipoTransporte;
 	private JTextField txtCategoria;
+	private static frmVehiculos instancia;
+
 
 	/**
 	 * Launch the application.
@@ -41,8 +45,7 @@ public class frmVehiculos extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmVehiculos frame = new frmVehiculos();
-					frame.setVisible(true);
+					frmVehiculos.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -189,6 +192,42 @@ public class frmVehiculos extends JFrame {
 		txtCategoria.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtCategoria.setBounds(32, 308, 215, 20);
 		contentPane.add(txtCategoria);
-	}
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+				
+			}
+		});
+		btnMenu.setBounds(10, 470, 65, 23);
+		contentPane.add(btnMenu);
 
+		
+		
+		addWindowListener(new WindowAdapter() {
+		
+		public void windowClosing(WindowEvent e) { 
+
+		instancia = null; 
+
+		} 
+
+	}); 
+
+}		 	 
+		public static frmVehiculos getInstancia() {// se cambia al nombre correspondiente  
+
+		 if (instancia == null) { 
+
+		 instancia = new frmVehiculos(); 
+
+		 } 
+
+		 return instancia; 
+
+ } 
+		
 }

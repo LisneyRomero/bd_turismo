@@ -24,6 +24,8 @@ import java.awt.Cursor;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.Frame;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -43,6 +45,7 @@ public class frmClientes extends JFrame {
 	private JTextField txtEstado;
 	private JTextField txtTelefono;
 	private JTextField txtDireccion;
+	private static frmClientes instancia;
 
 	/**
 	 * Launch the application.
@@ -51,8 +54,7 @@ public class frmClientes extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmClientes frame = new frmClientes();
-					frame.setVisible(true);
+					frmClientes.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -243,7 +245,43 @@ public class frmClientes extends JFrame {
 		btnLimpiar.setBackground(new Color(240, 234, 244));
 		btnLimpiar.setBounds(134, 640, 93, 29);
 		contentPane.add(btnLimpiar);
-		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblRegistro, lblTipo, txtTipo, lblDocumento, txtDocumento, lblNewLabel_1, txtNombre, lblApellido, txtApellido, lblEps, txtEps, lblAlergias, txtAlergias, lblFechaDeNacimiento, txtFecha, lblCorreo, txtCorreo, lblEstado, txtEstado, lblTelefono, txtTelefono, lblDireccion, txtDireccion, btnRegistrar, btnLimpiar}));
-	}
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+				
+			}
+		});
+		btnMenu.setBounds(10, 657, 89, 23);
+		contentPane.add(btnMenu);
+		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblRegistro, lblTipo, txtTipo, lblDocumento, txtDocumento, lblNewLabel_1, txtNombre, lblApellido, txtApellido, lblEps, txtEps, lblAlergias, txtAlergias, lblFechaDeNacimiento, txtFecha, lblCorreo, txtCorreo, lblEstado, txtEstado, lblTelefono, txtTelefono, lblDireccion, txtDireccion, btnRegistrar, btnLimpiar, btnMenu}));
+	
+		
+		
+		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
 
+			public void windowClosing(WindowEvent e) { 
+
+			instancia = null; 
+
+			} 
+
+		}); 
+
+	}		 	 
+			public static frmClientes getInstancia() {// se cambia al nombre correspondiente  
+
+			 if (instancia == null) { 
+
+			 instancia = new frmClientes(); 
+
+			 } 
+
+			 return instancia; 
+
+	 } 
+			
 }

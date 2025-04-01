@@ -23,6 +23,9 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.ImageIcon;
@@ -39,6 +42,8 @@ public class frmCompanias extends JFrame {
 	private JTextField txtWeb;
 	private JButton btnResgistrar;
 	private JButton btnLimpiar;
+	private static frmCompanias instancia;
+	private JButton btnMenu;
 
 	/**
 	 * Launch the application.
@@ -47,8 +52,7 @@ public class frmCompanias extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmCompanias frame = new frmCompanias();
-					frame.setVisible(true);
+					frmCompanias.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -189,5 +193,39 @@ public class frmCompanias extends JFrame {
 		btnLimpiar.setBackground(new Color(240, 234, 244));
 		btnLimpiar.setBounds(125, 414, 83, 27);
 		contentPane.add(btnLimpiar);
-	}
+		
+		btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+			}
+		});
+		btnMenu.setBounds(10, 438, 89, 23);
+		contentPane.add(btnMenu);
+	
+		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
+
+			public void windowClosing(WindowEvent e) { 
+
+			instancia = null; 
+
+			} 
+
+		}); 
+
+	}		 	 
+			public static frmCompanias getInstancia() {// se cambia al nombre correspondiente  
+
+			 if (instancia == null) { 
+
+			 instancia = new frmCompanias(); 
+
+			 } 
+
+			 return instancia; 
+
+	 } 
+			
 }

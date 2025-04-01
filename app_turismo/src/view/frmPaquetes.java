@@ -20,6 +20,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class frmPaquetes extends JFrame {
 
@@ -38,6 +40,7 @@ public class frmPaquetes extends JFrame {
 	private JTextField txtMedio;
 	private JTextField txtPrecio;
 	private JTextField txtObservaciones;
+	private static frmPaquetes instancia;
 
 	/**
 	 * Launch the application.
@@ -46,8 +49,7 @@ public class frmPaquetes extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frmPaquetes frame = new frmPaquetes();
-					frame.setVisible(true);
+					frmPaquetes.getInstancia().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -256,5 +258,41 @@ public class frmPaquetes extends JFrame {
 		txtObservaciones.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtObservaciones.setBounds(359, 243, 111, 42);
 		contentPane.add(txtObservaciones);
-	}
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+				
+			}
+		});
+		btnMenu.setBounds(27, 399, 89, 23);
+		contentPane.add(btnMenu);
+
+		
+		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
+
+			public void windowClosing(WindowEvent e) { 
+
+			instancia = null; 
+
+			} 
+
+		}); 
+
+	}		 	 
+			public static frmPaquetes getInstancia() {// se cambia al nombre correspondiente  
+
+			 if (instancia == null) { 
+
+			 instancia = new frmPaquetes(); 
+
+			 } 
+
+			 return instancia; 
+
+	 } 
+			
 }
