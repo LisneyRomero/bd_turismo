@@ -22,6 +22,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Cursor;
 
 public class frmPaquetes extends JFrame {
 
@@ -41,7 +44,8 @@ public class frmPaquetes extends JFrame {
 	private JTextField txtPrecio;
 	private JTextField txtObservaciones;
 	private static frmPaquetes instancia;
-
+	Paquetes cr = new Paquetes();
+	private JTextField txtcodigo;
 	/**
 	 * Launch the application.
 	 */
@@ -62,13 +66,13 @@ public class frmPaquetes extends JFrame {
 	 */
 	public frmPaquetes() {
 		setTitle("PAQUETES DE VIAJE");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\plano-alt.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\plano-alt.png"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 526, 472);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		this.setLocationRelativeTo(null);//centrar el formulario
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -89,11 +93,12 @@ public class frmPaquetes extends JFrame {
 		contentPane.add(txtDestino);
 		
 		JButton btnRegistrar = new JButton("REGISTRAR");
+		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				Paquetes cr = new Paquetes();
+				
 				
 				cr.create(Integer.parseInt(txtDestino.getText()),Integer.parseInt(txtOrigen.getText()),txtVenta.getText(),
 				 txtHoraVenta.getText(),txtSalida.getText(),txtEjecucion.getText(),txtObservaciones.getText(),Integer.parseInt(txtPromotores.getText()),
@@ -105,39 +110,11 @@ public class frmPaquetes extends JFrame {
 				
 			}
 		});
-		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\escribir.png"));
+		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnRegistrar.setBackground(new Color(240, 234, 244));
-		btnRegistrar.setBounds(193, 313, 123, 41);
+		btnRegistrar.setBounds(193, 321, 123, 33);
 		contentPane.add(btnRegistrar);
-		
-		JButton btnLimpiar = new JButton("BORRAR");
-		btnLimpiar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				txtDestino.setText("");
-				txtOrigen.setText("");
-				txtVenta.setText("");
-				txtHoraVenta.setText("");
-				txtSalida.setText("");
-				txtEjecucion.setText("");
-				txtObservaciones.setText("");
-				txtPromotores.setText("");
-				txtCliente.setText("");
-				txtVehiculo.setText("");
-				txtMedio.setText("");
-				txtPrecio.setText("");
-				
-				
-				
-			}
-		});
-		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\boton-eliminar.png"));
-		btnLimpiar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btnLimpiar.setBackground(new Color(240, 234, 244));
-		btnLimpiar.setBounds(199, 365, 111, 33);
-		contentPane.add(btnLimpiar);
 		
 		JLabel lblidOrigen = new JLabel("ID Origen:");
 		lblidOrigen.setBounds(27, 131, 77, 14);
@@ -259,17 +236,83 @@ public class frmPaquetes extends JFrame {
 		txtObservaciones.setBounds(359, 243, 111, 42);
 		contentPane.add(txtObservaciones);
 		
-		JButton btnMenu = new JButton("Menu");
-		btnMenu.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("");
+		btnLimpiar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+
+				txtDestino.setText("");
+				txtOrigen.setText("");
+				txtVenta.setText("");
+				txtHoraVenta.setText("");
+				txtSalida.setText("");
+				txtEjecucion.setText("");
+				txtObservaciones.setText("");
+				txtPromotores.setText("");
+				txtCliente.setText("");
+				txtAgencia.setText("");
+				txtVehiculo.setText("");
+				txtMedio.setText("");
+				txtPrecio.setText("");
+				
+			}
+		});
+		btnLimpiar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setContentAreaFilled(false);
+		btnLimpiar.setBorder(null);
+		btnLimpiar.setBackground(new Color(240, 234, 244));
+		btnLimpiar.setBounds(319, 322, 40, 33);
+		contentPane.add(btnLimpiar);
+		
+		JButton btnMenu_1 = new JButton("");
+		btnMenu_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnMenu_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
 				frmMenu.getInstancia().setVisible(true);
+			
 				
 			}
 		});
-		btnMenu.setBounds(27, 399, 89, 23);
-		contentPane.add(btnMenu);
+		btnMenu_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu_1.setFocusable(false);
+		btnMenu_1.setContentAreaFilled(false);
+		btnMenu_1.setBorder(null);
+		btnMenu_1.setBounds(0, 0, 40, 39);
+		contentPane.add(btnMenu_1);
+		
+		JLabel lblCodigo = new JLabel("Codigo:");
+		lblCodigo.setBounds(27, 378, 53, 14);
+		contentPane.add(lblCodigo);
+		
+		txtcodigo = new JTextField();
+		txtcodigo.setColumns(10);
+		txtcodigo.setBorder(new EmptyBorder(1, 1, 1, 1));
+		txtcodigo.setBounds(80, 375, 46, 20);
+		contentPane.add(txtcodigo);
+		
+		JButton btnEliminar = new JButton("");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				cr.delete(Integer.parseInt(txtcodigo.getText()));
+				
+			}
+		});
+		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setContentAreaFilled(false);
+		btnEliminar.setBorder(null);
+		btnEliminar.setBounds(126, 369, 40, 29);
+		contentPane.add(btnEliminar);
 
 		
 		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  

@@ -16,6 +16,7 @@ public class Test {
 			JOptionPane.showConfirmDialog(null, "No conectado a la base de datos");
 		}
 		
+		
 
 	}
 

@@ -223,7 +223,7 @@ public class Paquetes {
 			Connection dbConnection = null;
 			PreparedStatement pst =null; //prepara la trx
 			
-			String script = "INSERT INTO tblpaquetes ( iddestino,  idorigen,  fechaventa,  horaventa,  horasalida,\r\n"
+			String script = "INSERT INTO tlbpaquetes ( iddestino,  idorigen,  fechaventa,  horaventa,  horasalida,\r\n"
 					+ "			 fechaejecucion,  observaciones,  idpromotores,  idclientes,  idagencia,\r\n"
 					+ "			 idvehiculo,  idmedios,  precios ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
@@ -258,7 +258,35 @@ public class Paquetes {
 		
 	}
 	
-	
+	//Eliminar registros 
+		public void delete(int codigo) {
+			
+			Connection dbConnection = null;
+			PreparedStatement pst = null; //Preparar la trx
+			
+			String script = "DELETE FROM tlbpaquetes WHERE codigo = ?";
+			
+			try { 
+				dbConnection = conector.conectarBD(); //abrir la conexion
+				pst = dbConnection.prepareStatement(script); //abrir el buffer
+				
+				//parametrizar el campo
+				pst.setInt(1 , codigo);
+				
+				//confirmar la operacion
+				int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + codigo +"?");
+				
+				if (resp == JOptionPane.OK_OPTION) {
+					//ejecutar la Trx
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Registro No. " + codigo + " eliminado");			
+			}
+				}catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			
+		}
+
 	
 	
 	

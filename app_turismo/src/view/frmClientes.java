@@ -46,7 +46,8 @@ public class frmClientes extends JFrame {
 	private JTextField txtTelefono;
 	private JTextField txtDireccion;
 	private static frmClientes instancia;
-
+	Clientes cr = new Clientes();
+	private JTextField txtidclientes;
 	/**
 	 * Launch the application.
 	 */
@@ -66,17 +67,20 @@ public class frmClientes extends JFrame {
 	 * Create the frame.
 	 */
 	public frmClientes() {
+		setTitle("REGISTRO CLIENTES");
 		
 		
 		
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\nueva-cuenta.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\agregar-contacto.png"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 377, 730);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		
+		this.setLocationRelativeTo(null);
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -201,7 +205,7 @@ public class frmClientes extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				Clientes cr = new Clientes();
+				
 				cr.create(  txtTipo.getText(), Integer.parseInt(txtDocumento.getText()),txtNombre.getText(), txtApellido.getText(), txtEps.getText(), txtAlergias.getText(),
 						txtFecha.getText(), txtCorreo.getText(),  txtEstado.getText(),txtTelefono.getText(), txtDireccion.getText());
 			
@@ -210,13 +214,14 @@ public class frmClientes extends JFrame {
 			}
 		});
 		btnRegistrar.setBackground(new Color(240, 234, 244));
-		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\escribir.png"));
+		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btnRegistrar.setBounds(125, 607, 110, 32);
+		btnRegistrar.setBounds(125, 588, 110, 32);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnLimpiar = new JButton("BORRAR");
+		JButton btnLimpiar = new JButton("");
+		btnLimpiar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -240,13 +245,19 @@ public class frmClientes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\boton-eliminar.png"));
-		btnLimpiar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
-		btnLimpiar.setBounds(134, 640, 93, 29);
+		btnLimpiar.setBounds(242, 590, 34, 29);
+		btnLimpiar.setContentAreaFilled(false);
 		contentPane.add(btnLimpiar);
 		
-		JButton btnMenu = new JButton("Menu");
+		JButton btnMenu = new JButton("");
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMenu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -255,9 +266,43 @@ public class frmClientes extends JFrame {
 				
 			}
 		});
-		btnMenu.setBounds(10, 657, 89, 23);
+		btnMenu.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu.setFocusable(false);
+		btnMenu.setContentAreaFilled(false);
+		btnMenu.setBorder(null);
+		btnMenu.setBounds(0, 0, 40, 39);
 		contentPane.add(btnMenu);
-		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblRegistro, lblTipo, txtTipo, lblDocumento, txtDocumento, lblNewLabel_1, txtNombre, lblApellido, txtApellido, lblEps, txtEps, lblAlergias, txtAlergias, lblFechaDeNacimiento, txtFecha, lblCorreo, txtCorreo, lblEstado, txtEstado, lblTelefono, txtTelefono, lblDireccion, txtDireccion, btnRegistrar, btnLimpiar, btnMenu}));
+		
+		JLabel lblidClientes = new JLabel("ID Clientes: ");
+		lblidClientes.setBounds(8, 645, 69, 14);
+		contentPane.add(lblidClientes);
+		
+		txtidclientes = new JTextField();
+		txtidclientes.setColumns(10);
+		txtidclientes.setBorder(new EmptyBorder(1, 1, 1, 1));
+		txtidclientes.setBounds(79, 642, 46, 20);
+		contentPane.add(txtidclientes);
+		
+		JButton btnEliminar = new JButton("");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				cr.delete(Integer.parseInt(txtidclientes.getText()));
+				
+			}
+		});
+		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setContentAreaFilled(false);
+		btnEliminar.setBorder(null);
+		btnEliminar.setBounds(125, 636, 40, 29);
+		contentPane.add(btnEliminar);
+		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblRegistro, lblTipo, txtTipo, lblDocumento, txtDocumento, lblNewLabel_1, txtNombre, lblApellido, txtApellido, lblEps, txtEps, lblAlergias, txtAlergias, lblFechaDeNacimiento, txtFecha, lblCorreo, txtCorreo, lblEstado, txtEstado, lblTelefono, txtTelefono, lblDireccion, txtDireccion, btnRegistrar, btnLimpiar, btnMenu, lblidClientes, txtidclientes, btnEliminar}));
 	
 		
 		

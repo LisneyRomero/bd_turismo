@@ -13,7 +13,7 @@ public class Agencias {
 	
 	Conexion conector = new Conexion();
 	
-
+	public int idagencia;
 	public String nombre;
 	public String telefono;
 	public String direccion;
@@ -22,7 +22,7 @@ public class Agencias {
 	public int idcompania;
 	
 	
-	public Agencias( String nombre, String telefono, String direccion, String correo, String web,
+	public Agencias( int idagencia, String nombre, String telefono, String direccion, String correo, String web,
 			int idcompania) {
 		super();
 		
@@ -39,6 +39,28 @@ public class Agencias {
 	
 	public Agencias() {
 		super();
+	}
+
+
+
+
+	public Agencias(int idagencia) {
+		super();
+		this.idagencia = idagencia;
+	}
+
+
+
+
+	public int getIdagencia() {
+		return idagencia;
+	}
+
+
+
+
+	public void setIdagencia(int idagencia) {
+		this.idagencia = idagencia;
 	}
 
 
@@ -113,7 +135,38 @@ public void create (String nombre, String telefono, String direccion, String cor
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-	
+				
 }
+
+		//Eliminar registros 
+		public void delete(int idagencia) {
+			
+			Connection dbConnection = null;
+			PreparedStatement pst = null; //Preparar la trx
+			
+			String script = "DELETE FROM tblagencias WHERE idagencia = ?";
+			
+			try { 
+				dbConnection = conector.conectarBD(); //abrir la conexion
+				pst = dbConnection.prepareStatement(script); //abrir el buffer
+				
+				//parametrizar el campo
+				pst.setInt(1 , idagencia);
+				
+				//confirmar la operacion
+				int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idagencia +"?");
+				
+				if (resp == JOptionPane.OK_OPTION) {
+					//ejecutar la Trx
+					pst.executeUpdate();
+					JOptionPane.showConfirmDialog(null, "Registro No. " + idagencia+ " eliminado");			
+			}
+				}catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			
+		}
+
+
 	
 }

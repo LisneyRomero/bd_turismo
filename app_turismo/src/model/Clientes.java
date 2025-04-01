@@ -12,6 +12,7 @@ public class Clientes {
 	
 	Conexion conector = new Conexion();
 	
+	
 	public  String tipodocumento;
 	public  int documento;
 	public  String nombre;
@@ -49,7 +50,6 @@ public class Clientes {
 	public Clientes() {
 		super();
 	}
-
 
 
 
@@ -159,4 +159,35 @@ public class Clientes {
 		}
 	
 }
+
+	//Eliminar registros 
+	public void delete(int idclientes) {
+		
+		Connection dbConnection = null;
+		PreparedStatement pst = null; //Preparar la trx
+		
+		String script = "DELETE FROM tblclientes WHERE idclientes = ?";
+		
+		try { 
+			dbConnection = conector.conectarBD(); //abrir la conexion
+			pst = dbConnection.prepareStatement(script); //abrir el buffer
+			
+			//parametrizar el campo
+			pst.setInt(1 , idclientes);
+			
+			//confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idclientes +"?");
+			
+			if (resp == JOptionPane.OK_OPTION) {
+				//ejecutar la Trx
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "Registro No. " + idclientes + " eliminado");			
+		}
+			}catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		
+	}
+
+	
 }

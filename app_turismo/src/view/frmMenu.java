@@ -17,6 +17,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class frmMenu extends JFrame {
 
@@ -44,6 +45,8 @@ public class frmMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public frmMenu() {
+		setTitle("MENU");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\menu-hamburguesa.png"));
 		
 		
 		
@@ -65,7 +68,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblTitle);
 		
 		JLabel lblAgencias = new JLabel("Registro de Agencias............");
-		lblAgencias.setBounds(10, 69, 182, 14);
+		lblAgencias.setBounds(10, 69, 213, 14);
 		contentPane.add(lblAgencias);
 		
 		JButton btnIrAgencias = new JButton("Ir");
@@ -81,7 +84,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnIrAgencias);
 		
 		JLabel lblClientes = new JLabel("Registro de Clientes............");
-		lblClientes.setBounds(10, 94, 182, 14);
+		lblClientes.setBounds(10, 94, 213, 14);
 		contentPane.add(lblClientes);
 		
 		JButton btnIrClientes = new JButton("Ir");
@@ -97,7 +100,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnIrClientes);
 		
 		JLabel lblCompanias = new JLabel("Registro de Compañias............");
-		lblCompanias.setBounds(10, 119, 182, 14);
+		lblCompanias.setBounds(10, 119, 213, 14);
 		contentPane.add(lblCompanias);
 		
 		JButton btnIrCompanias = new JButton("Ir");
@@ -113,7 +116,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnIrCompanias);
 		
 		JLabel lblMedios = new JLabel("Registro de Medios............");
-		lblMedios.setBounds(10, 144, 182, 14);
+		lblMedios.setBounds(10, 144, 213, 14);
 		contentPane.add(lblMedios);
 		
 		JButton btnIrMedios = new JButton("Ir");
@@ -128,7 +131,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnIrMedios);
 		
 		JLabel lblOperadores = new JLabel("Registro de Operadores............");
-		lblOperadores.setBounds(10, 169, 182, 14);
+		lblOperadores.setBounds(10, 169, 213, 14);
 		contentPane.add(lblOperadores);
 		
 		JButton btnIrOperadores = new JButton("Ir");
@@ -147,7 +150,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnIrOperadores);
 		
 		JLabel lblPaquetes = new JLabel("Registro de Paquetes............");
-		lblPaquetes.setBounds(10, 194, 182, 14);
+		lblPaquetes.setBounds(10, 194, 213, 14);
 		contentPane.add(lblPaquetes);
 		
 		JButton btnIrPaquetes = new JButton("Ir");
@@ -163,7 +166,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnIrPaquetes);
 		
 		JLabel lblPromotores = new JLabel("Registro de Promotores............");
-		lblPromotores.setBounds(10, 219, 182, 14);
+		lblPromotores.setBounds(10, 219, 213, 14);
 		contentPane.add(lblPromotores);
 		
 		JButton btnIrPromotores = new JButton("Ir");
@@ -183,7 +186,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnIrPromotores);
 		
 		JLabel lblTipoMedio = new JLabel("Registro de Tipos de Medios............");
-		lblTipoMedio.setBounds(10, 246, 182, 14);
+		lblTipoMedio.setBounds(10, 246, 213, 14);
 		contentPane.add(lblTipoMedio);
 		
 		JButton btnTipoMedio = new JButton("Ir");
@@ -198,7 +201,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnTipoMedio);
 		
 		JLabel lblTipoTransporte = new JLabel("Registro de Tipos de Transporte............");
-		lblTipoTransporte.setBounds(10, 271, 182, 14);
+		lblTipoTransporte.setBounds(10, 271, 213, 14);
 		contentPane.add(lblTipoTransporte);
 		
 		JButton btnIrTransporte = new JButton("Ir");
@@ -214,7 +217,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(btnIrTransporte);
 		
 		JLabel lblVehiculo = new JLabel("Registro de Vehiculos............");
-		lblVehiculo.setBounds(10, 296, 182, 14);
+		lblVehiculo.setBounds(10, 296, 213, 14);
 		contentPane.add(lblVehiculo);
 		
 		JButton btnIrVehiculos = new JButton("Ir");

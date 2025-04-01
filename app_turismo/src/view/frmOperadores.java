@@ -27,6 +27,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Cursor;
 
 public class frmOperadores extends JFrame {
 
@@ -41,7 +42,8 @@ public class frmOperadores extends JFrame {
 	private JTextField txtIdVehiculo;
 	private JTextField txtTelefono;
 	private static frmOperadores instancia;
-
+	Operadores cr = new Operadores();
+	private JTextField txtidoperadores;
 	/**
 	 * Launch the application.
 	 */
@@ -61,13 +63,15 @@ public class frmOperadores extends JFrame {
 	 * Create the frame.
 	 */
 	public frmOperadores() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\agregar-contacto.png"));
-		setTitle("Registro de Operadores");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\agregar-contacto.png"));
+		setTitle("REGISTRO DE OPERADORES");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 451, 464);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		this.setLocationRelativeTo(null);//centrar el formulario
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -83,7 +87,7 @@ public class frmOperadores extends JFrame {
 		contentPane.add(lbltipoDocumento);
 		
 		txtTipoDoc = new JTextField();
-		txtTipoDoc.setToolTipText("");
+		txtTipoDoc.setToolTipText("1. Cedula de Ciudadania \r\n\r\n2. Cedula de Extrangeria \r\n\r\n3. Pasaporte ");
 		txtTipoDoc.setColumns(10);
 		txtTipoDoc.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtTipoDoc.setBounds(43, 103, 155, 20);
@@ -144,7 +148,7 @@ public class frmOperadores extends JFrame {
 		contentPane.add(lblIdvehiculo);
 		
 		txtIdVehiculo = new JTextField();
-		txtIdVehiculo.setToolTipText("AAAA-MM-DD\r\n");
+		txtIdVehiculo.setToolTipText("");
 		txtIdVehiculo.setSelectionColor(new Color(0, 128, 255));
 		txtIdVehiculo.setColumns(10);
 		txtIdVehiculo.setBorder(new EmptyBorder(1, 1, 1, 1));
@@ -162,14 +166,12 @@ public class frmOperadores extends JFrame {
 		contentPane.add(txtTelefono);
 		
 		JButton btnRegistrar = new JButton("REGISTRAR");
+		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				
-
-				Operadores cr = new Operadores();
-				
+					
 				cr.create(txtTipoDoc.getText(), txtDocumento.getText()  ,  txtNombre.getText()
 						,  txtApellido.getText(),txtDireccion.getText(),  txtCorreo.getText(), 
 						   txtTelefono.getText(), Integer.parseInt(txtIdVehiculo.getText()));
@@ -178,13 +180,14 @@ public class frmOperadores extends JFrame {
 				
 			}
 		});
-		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\escribir.png"));
+		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnRegistrar.setBackground(new Color(240, 234, 244));
 		btnRegistrar.setBounds(156, 325, 123, 41);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnLimpiar = new JButton("BORRAR");
+		JButton btnLimpiar = new JButton("");
+		btnLimpiar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -204,25 +207,55 @@ public class frmOperadores extends JFrame {
 				
 			}
 		});
-		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\boton-eliminar.png"));
-		btnLimpiar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
-		btnLimpiar.setBounds(162, 377, 111, 33);
+		btnLimpiar.setBounds(281, 329, 40, 33);
+		btnLimpiar.setContentAreaFilled(false);
 		contentPane.add(btnLimpiar);
 		
-		JButton btnMenu = new JButton("Menu");
+		JButton btnMenu = new JButton("");
+		btnMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMenu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				
 				frmMenu.getInstancia().setVisible(true);
+			}
+		});
+		btnMenu.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu.setFocusable(false);
+		btnMenu.setContentAreaFilled(false);
+		btnMenu.setBorder(null);
+		btnMenu.setBounds(0, 0, 40, 39);
+		contentPane.add(btnMenu);
+		
+		JLabel lblIdOperadores = new JLabel("ID Operadores:");
+		lblIdOperadores.setBounds(25, 386, 89, 14);
+		contentPane.add(lblIdOperadores);
+		
+		txtidoperadores = new JTextField();
+		txtidoperadores.setColumns(10);
+		txtidoperadores.setBorder(new EmptyBorder(1, 1, 1, 1));
+		txtidoperadores.setBounds(118, 383, 46, 20);
+		contentPane.add(txtidoperadores);
+		
+		JButton btnEliminar = new JButton("");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				cr.delete(Integer.parseInt(txtidoperadores.getText()));
 				
 			}
 		});
-		btnMenu.setBounds(23, 391, 89, 23);
-		contentPane.add(btnMenu);
-		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblTitle, lbltipoDocumento, txtTipoDoc, lblDocumento, txtDocumento, lblNombre, txtNombre, lblApellido, txtApellido, lblDireccion, txtDireccion, lblCorreo, txtCorreo, txtTelefono, lblTelefono, lblIdvehiculo, txtIdVehiculo, btnRegistrar, btnLimpiar, btnMenu}));
+		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setContentAreaFilled(false);
+		btnEliminar.setBorder(null);
+		btnEliminar.setBounds(164, 377, 40, 29);
+		contentPane.add(btnEliminar);
+		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblTitle, lbltipoDocumento, txtTipoDoc, lblDocumento, txtDocumento, lblNombre, txtNombre, lblApellido, txtApellido, lblDireccion, txtDireccion, lblCorreo, txtCorreo, txtTelefono, lblTelefono, lblIdvehiculo, txtIdVehiculo, btnRegistrar, btnLimpiar, btnMenu, lblIdOperadores, txtidoperadores, btnEliminar}));
 	
 		
 		

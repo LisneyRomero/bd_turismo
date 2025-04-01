@@ -100,11 +100,41 @@ public class Companias {
 		//ejecutar la trx
 		pst.executeUpdate();
 		
-		JOptionPane.showConfirmDialog(null, "Registrado con exito");
+		JOptionPane.showMessageDialog(null, "Registrado con exito");
 		
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 	
 		}
 	}
+	
+	
+	//Eliminar registros 
+		public void delete(int idcompania) {
+			
+			Connection dbConnection = null;
+			PreparedStatement pst = null; //Preparar la trx
+			
+			String script = "DELETE FROM tblcompanias WHERE idcompania = ?";
+			
+			try { 
+				dbConnection = conector.conectarBD(); //abrir la conexion
+				pst = dbConnection.prepareStatement(script); //abrir el buffer
+				
+				//parametrizar el campo
+				pst.setInt(1 , idcompania);
+				
+				//confirmar la operacion
+				int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idcompania +"?");
+				
+				if (resp == JOptionPane.OK_OPTION) {
+					//ejecutar la Trx
+					pst.executeUpdate();
+					JOptionPane.showConfirmDialog(null, "Registro No. " + idcompania + " eliminado");			
+			}
+				}catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			
+		}
 }
