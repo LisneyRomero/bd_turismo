@@ -61,7 +61,7 @@ public class frmAgencias extends JFrame {
 	 */
 	public frmAgencias() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\agencia-de-viajes.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 339, 518);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));

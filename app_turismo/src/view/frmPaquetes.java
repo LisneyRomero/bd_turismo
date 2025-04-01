@@ -63,7 +63,7 @@ public class frmPaquetes extends JFrame {
 	public frmPaquetes() {
 		setTitle("PAQUETES DE VIAJE");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\plano-alt.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 526, 472);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));

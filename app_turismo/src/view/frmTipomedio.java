@@ -64,7 +64,7 @@ public class frmTipomedio extends JFrame {
 		setPreferredSize(new Dimension(1, 1));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\medios-de-comunicacion.png"));
 		setTitle("TIPOS DE MEDIOS");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 331, 338);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
