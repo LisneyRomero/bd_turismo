@@ -63,7 +63,7 @@ public class frmTipomedio extends JFrame {
 	 */
 	public frmTipomedio() {
 		setPreferredSize(new Dimension(1, 1));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\medios-de-comunicacion.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\medios-de-comunicacion.png"));
 		setTitle("TIPOS DE MEDIOS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 331, 358);
@@ -172,6 +172,10 @@ public class frmTipomedio extends JFrame {
 		contentPane.add(txttiposmedios);
 		
 		JButton btnEliminar = new JButton("");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

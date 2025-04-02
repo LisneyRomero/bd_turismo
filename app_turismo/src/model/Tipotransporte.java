@@ -83,6 +83,34 @@ public void create (String nombre, String observaciones) {
 	
 	
 }
+//Eliminar registros 
+	public void delete(int idtipotransporte) {
+		
+		Connection dbConnection = null;
+		PreparedStatement pst = null; //Preparar la trx
+		
+		String script = "DELETE FROM tbltipotransporte WHERE idtipotransporte = ?";
+		
+		try { 
+			dbConnection = conector.conectarBD(); //abrir la conexion
+			pst = dbConnection.prepareStatement(script); //abrir el buffer
+			
+			//parametrizar el campo
+			pst.setInt(1 , idtipotransporte);
+			
+			//confirmar la operacion
+			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idtipotransporte +"?");
+			
+			if (resp == JOptionPane.OK_OPTION) {
+				//ejecutar la Trx
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro No. " + idtipotransporte + " eliminado");			
+		}
+			}catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		
+	}
 	
 	
 	
