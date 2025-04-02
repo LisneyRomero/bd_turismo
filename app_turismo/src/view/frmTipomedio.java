@@ -42,6 +42,7 @@ public class frmTipomedio extends JFrame {
 	private JTextField txtNombre;
 	private static frmTipomedio instancia;
 	Tipomedio cr = new Tipomedio();
+	private JTextField txttiposmedios;
 	/**
 	 * Launch the application.
 	 */
@@ -65,7 +66,7 @@ public class frmTipomedio extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\medios-de-comunicacion.png"));
 		setTitle("TIPOS DE MEDIOS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 331, 338);
+		setBounds(100, 100, 331, 358);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -92,7 +93,7 @@ public class frmTipomedio extends JFrame {
 		contentPane.add(txtObservaciones);
 		
 		JButton btnregistrartipomedio = new JButton("REGISTRAR");
-		btnregistrartipomedio.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\escribir.png"));
+		btnregistrartipomedio.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
 		btnregistrartipomedio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -112,7 +113,7 @@ public class frmTipomedio extends JFrame {
 				
 			}
 		});
-		btnregistrartipomedio.setBounds(100, 219, 114, 33);
+		btnregistrartipomedio.setBounds(100, 219, 114, 28);
 		contentPane.add(btnregistrartipomedio);
 		
 		txtNombre = new JTextField();
@@ -128,7 +129,22 @@ public class frmTipomedio extends JFrame {
 		lblTitle.setBounds(54, 23, 207, 14);
 		contentPane.add(lblTitle);
 		
-		JButton btnLimpiar = new JButton("BORRAR");
+		JButton btnMenu_1 = new JButton("");
+		btnMenu_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+			}
+		});
+		btnMenu_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu_1.setFocusable(false);
+		btnMenu_1.setContentAreaFilled(false);
+		btnMenu_1.setBorder(null);
+		btnMenu_1.setBounds(0, 0, 40, 39);
+		contentPane.add(btnMenu_1);
+		
+		JButton btnLimpiar = new JButton("");
 		btnLimpiar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -136,27 +152,38 @@ public class frmTipomedio extends JFrame {
 				
 				txtNombre.setText("");
 				txtObservaciones.setText("");
-				
-				
 			}
 		});
-		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\boton-eliminar.png"));
-		btnLimpiar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setContentAreaFilled(false);
+		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
-		btnLimpiar.setBounds(109, 255, 96, 33);
+		btnLimpiar.setBounds(217, 218, 40, 33);
 		contentPane.add(btnLimpiar);
 		
-		JButton btnMenu = new JButton("Menu");
-		btnMenu.addMouseListener(new MouseAdapter() {
+		JLabel lblIdtiposmedios = new JLabel("ID Tipos de Medios:");
+		lblIdtiposmedios.setBounds(10, 276, 112, 14);
+		contentPane.add(lblIdtiposmedios);
+		
+		txttiposmedios = new JTextField();
+		txttiposmedios.setColumns(10);
+		txttiposmedios.setBorder(new EmptyBorder(1, 1, 1, 1));
+		txttiposmedios.setBounds(123, 273, 46, 20);
+		contentPane.add(txttiposmedios);
+		
+		JButton btnEliminar = new JButton("");
+		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				frmMenu.getInstancia().setVisible(true);
-				
+				cr.delete(Integer.parseInt(txttiposmedios.getText()));
 			}
 		});
-		btnMenu.setBounds(10, 265, 65, 23);
-		contentPane.add(btnMenu);
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setContentAreaFilled(false);
+		btnEliminar.setBorder(null);
+		btnEliminar.setBounds(169, 267, 40, 29);
+		contentPane.add(btnEliminar);
 
 		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
 

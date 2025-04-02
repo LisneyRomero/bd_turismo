@@ -91,7 +91,7 @@ public class Vehiculos {
 			Connection dbConnection = null;
 			PreparedStatement pst =null; //prepara la trx
 			
-			String script = "INSERT INTO tblvehiculos ( placa,  marca,  puestos,  modelo,  numeromotor,\r\n"
+			String script = "INSERT INTO tblvehiculo ( placa,  marca,  puestos,  modelo,  numeromotor,\r\n"
 					+ "			 categoria,  idtipotransporte) VALUES (?,?,?,?,?,?,?)";
 			
 			try { dbConnection = conector.conectarBD(); //abrir conexion
@@ -120,4 +120,33 @@ public class Vehiculos {
 		
 	}
 
+	
+	//Eliminar registros 
+		public void delete(int idvehiculo) {
+			
+			Connection dbConnection = null;
+			PreparedStatement pst = null; //Preparar la trx
+			
+			String script = "DELETE FROM tblvehiculo WHERE idvehiculo = ?";
+			
+			try { 
+				dbConnection = conector.conectarBD(); //abrir la conexion
+				pst = dbConnection.prepareStatement(script); //abrir el buffer
+				
+				//parametrizar el campo
+				pst.setInt(1 , idvehiculo);
+				
+				//confirmar la operacion
+				int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. " + idvehiculo +"?");
+				
+				if (resp == JOptionPane.OK_OPTION) {
+					//ejecutar la Trx
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Registro No. " + idvehiculo + " eliminado");			
+			}
+				}catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			
+		}
 }

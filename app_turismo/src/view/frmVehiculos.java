@@ -23,6 +23,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.Cursor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class frmVehiculos extends JFrame {
 
@@ -36,7 +38,8 @@ public class frmVehiculos extends JFrame {
 	private JTextField txtIdTipoTransporte;
 	private JTextField txtCategoria;
 	private static frmVehiculos instancia;
-
+	private JTextField txtidvehiculo;
+	Vehiculos cr = new Vehiculos();
 
 	/**
 	 * Launch the application.
@@ -57,14 +60,16 @@ public class frmVehiculos extends JFrame {
 	 * Create the frame.
 	 */
 	public frmVehiculos() {
-		setTitle("Registro de Vehiculos");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\autobus.png"));
+		setTitle("REGISTRO DE VEHICULOS");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\autobus.png"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 323, 543);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
+		this.setLocationRelativeTo(null);//centrar el formulario
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -139,11 +144,11 @@ public class frmVehiculos extends JFrame {
 		contentPane.add(txtIdTipoTransporte);
 		
 		JButton btnRegistrar = new JButton("REGISTRAR");
+		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				Vehiculos cr = new Vehiculos();
 				
 				cr.create(txtPlaca.getText(), txtMarca.getText(), Integer.parseInt (txtPuesto.getText()),  txtModelo.getText(), 
 						txtMotor.getText(), txtCategoria.getText(), Integer.parseInt(txtIdTipoTransporte.getText()));
@@ -152,35 +157,11 @@ public class frmVehiculos extends JFrame {
 				
 			}
 		});
-		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\escribir.png"));
+		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnRegistrar.setBackground(new Color(240, 234, 244));
-		btnRegistrar.setBounds(82, 391, 123, 41);
+		btnRegistrar.setBounds(82, 400, 123, 32);
 		contentPane.add(btnRegistrar);
-		
-		JButton btnLimpiar = new JButton("BORRAR");
-		btnLimpiar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnLimpiar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				
-				txtPlaca.setText("");
-				txtMarca.setText("");
-				txtPuesto.setText("");
-				txtModelo.setText("");
-				txtMotor.setText("");
-				txtCategoria.setText("");
-				txtIdTipoTransporte.setText("");
-				
-				
-			}
-		});
-		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Documents\\Lisney\\app_turismo\\src\\view\\boton-eliminar.png"));
-		btnLimpiar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btnLimpiar.setBackground(new Color(240, 234, 244));
-		btnLimpiar.setBounds(88, 443, 111, 33);
-		contentPane.add(btnLimpiar);
 		
 		JLabel lblCategoria = new JLabel("Categoria:");
 		lblCategoria.setBounds(32, 294, 215, 14);
@@ -193,17 +174,74 @@ public class frmVehiculos extends JFrame {
 		txtCategoria.setBounds(32, 308, 215, 20);
 		contentPane.add(txtCategoria);
 		
-		JButton btnMenu = new JButton("Menu");
-		btnMenu.addMouseListener(new MouseAdapter() {
+		JButton btnMenu = new JButton("");
+		btnMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frmMenu.getInstancia().setVisible(true);
+			}
+		});
+		btnMenu.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu.setFocusable(false);
+		btnMenu.setContentAreaFilled(false);
+		btnMenu.setBorder(null);
+		btnMenu.setBounds(0, 0, 40, 39);
+		contentPane.add(btnMenu);
+		
+		JButton btnLimpiar_1 = new JButton("");
+		btnLimpiar_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLimpiar_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				frmMenu.getInstancia().setVisible(true);
+				txtPlaca.setText("");
+				txtMarca.setText("");
+				txtPuesto.setText("");
+				txtModelo.setText("");
+				txtMotor.setText("");
+				txtCategoria.setText("");
+				txtIdTipoTransporte.setText("");
+				
 				
 			}
 		});
-		btnMenu.setBounds(10, 470, 65, 23);
-		contentPane.add(btnMenu);
+		btnLimpiar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLimpiar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar_1.setContentAreaFilled(false);
+		btnLimpiar_1.setBorder(null);
+		btnLimpiar_1.setBackground(new Color(240, 234, 244));
+		btnLimpiar_1.setBounds(208, 400, 40, 33);
+		contentPane.add(btnLimpiar_1);
+		
+		JLabel lblIdVehiculos = new JLabel("ID Vehiculo:");
+		lblIdVehiculos.setBounds(10, 452, 89, 14);
+		contentPane.add(lblIdVehiculos);
+		
+		txtidvehiculo = new JTextField();
+		txtidvehiculo.setColumns(10);
+		txtidvehiculo.setBorder(new EmptyBorder(1, 1, 1, 1));
+		txtidvehiculo.setBounds(103, 449, 46, 20);
+		contentPane.add(txtidvehiculo);
+		
+		JButton btnEliminar = new JButton("");
+		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				cr.delete(Integer.parseInt(txtidvehiculo.getText()));
+				
+			}
+		});
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setContentAreaFilled(false);
+		btnEliminar.setBorder(null);
+		btnEliminar.setBounds(149, 443, 40, 29);
+		contentPane.add(btnEliminar);
 
 		
 		
@@ -229,5 +267,4 @@ public class frmVehiculos extends JFrame {
 		 return instancia; 
 
  } 
-		
 }

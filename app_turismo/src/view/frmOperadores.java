@@ -241,6 +241,10 @@ public class frmOperadores extends JFrame {
 		contentPane.add(txtidoperadores);
 		
 		JButton btnEliminar = new JButton("");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
