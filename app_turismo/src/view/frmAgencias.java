@@ -42,6 +42,7 @@ public class frmAgencias extends JFrame {
 	private static frmAgencias instancia;
 	private JTextField txtidagencia;
 	Agencias cr = new Agencias();
+
 	/**
 	 * Launch the application.
 	 */
@@ -62,7 +63,8 @@ public class frmAgencias extends JFrame {
 	 */
 	public frmAgencias() {
 		setTitle("REGISTRO DE AGENCIAS");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\agencia-de-viajes.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\agencia-de-viajes.png"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 319, 507);
 		contentPane = new JPanel();
@@ -70,86 +72,84 @@ public class frmAgencias extends JFrame {
 		contentPane.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 
 		this.setLocationRelativeTo(null);
-		
+		this.setResizable(false);
+
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lbltITitle = new JLabel("REGISTRO DE AGENCIAS");
 		lbltITitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lbltITitle.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lbltITitle.setBounds(60, 33, 201, 39);
 		contentPane.add(lbltITitle);
-		
+
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setBounds(37, 101, 111, 14);
 		contentPane.add(lblNombre);
-		
+
 		txtNombre = new JTextField();
 		txtNombre.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtNombre.setBounds(37, 117, 215, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
-		
+
 		JLabel lblNewLabel = new JLabel("Telefono:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBounds(37, 148, 215, 14);
 		contentPane.add(lblNewLabel);
-		
+
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
 		txtTelefono.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtTelefono.setBounds(37, 162, 215, 20);
 		contentPane.add(txtTelefono);
-		
+
 		JLabel lblDireccion = new JLabel("Direccion:");
 		lblDireccion.setBounds(37, 193, 215, 14);
 		contentPane.add(lblDireccion);
-		
+
 		txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
 		txtDireccion.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtDireccion.setBounds(37, 206, 215, 20);
 		contentPane.add(txtDireccion);
-		
+
 		JLabel lblCorreo = new JLabel("Correo Electronico:");
 		lblCorreo.setBounds(37, 237, 215, 14);
 		contentPane.add(lblCorreo);
-		
+
 		txtCorreo = new JTextField();
 		txtCorreo.setHorizontalAlignment(SwingConstants.LEFT);
 		txtCorreo.setColumns(10);
 		txtCorreo.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtCorreo.setBounds(37, 250, 215, 20);
 		contentPane.add(txtCorreo);
-		
+
 		JLabel lblWeb = new JLabel("Pagina Web:");
 		lblWeb.setBounds(37, 281, 215, 14);
 		contentPane.add(lblWeb);
-		
+
 		txtWeb = new JTextField();
 		txtWeb.setHorizontalAlignment(SwingConstants.LEFT);
 		txtWeb.setColumns(10);
 		txtWeb.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtWeb.setBounds(37, 295, 215, 20);
 		contentPane.add(txtWeb);
-		
+
 		JLabel lblIdCompania = new JLabel("Compañia:");
 		lblIdCompania.setBounds(37, 326, 215, 14);
 		contentPane.add(lblIdCompania);
-		
+
 		JButton btnRegistrar = new JButton("REGISTRAR");
-		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
+		btnRegistrar.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
-				
-				cr.create(txtNombre.getText(),txtTelefono.getText(),txtDireccion.getText(),txtCorreo.getText(),txtWeb.getText(),Integer.parseInt(txtCompania.getText()));
-		
-			
-				
-				
+
+				cr.create(txtNombre.getText(), txtTelefono.getText(), txtDireccion.getText(), txtCorreo.getText(),
+						txtWeb.getText(), Integer.parseInt(txtCompania.getText()));
+
 			}
 		});
 		btnRegistrar.addActionListener(new ActionListener() {
@@ -161,37 +161,36 @@ public class frmAgencias extends JFrame {
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.setBounds(99, 370, 101, 29);
 		contentPane.add(btnRegistrar);
-		
+
 		txtCompania = new JTextField();
 		txtCompania.setHorizontalAlignment(SwingConstants.LEFT);
 		txtCompania.setColumns(10);
 		txtCompania.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtCompania.setBounds(37, 339, 215, 20);
 		contentPane.add(txtCompania);
-		
+
 		JButton btnLimpiar = new JButton("");
 		btnLimpiar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				txtNombre.setText("");
 				txtTelefono.setText("");
 				txtDireccion.setText("");
 				txtCorreo.setText("");
 				txtWeb.setText("");
 				txtCompania.setText("");
-				
-				
-				
+
 			}
 		});
-		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setContentAreaFilled(false);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
 		btnLimpiar.setBounds(197, 370, 46, 29);
 		contentPane.add(btnLimpiar);
-		
+
 		JButton btnMenu = new JButton("");
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -201,28 +200,29 @@ public class frmAgencias extends JFrame {
 		btnMenu.setBorder(null);
 		btnMenu.setContentAreaFilled(false);
 		btnMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnMenu.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu.setIcon(
+				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
 		btnMenu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				frmMenu.getInstancia().setVisible(true);
-				
+
 			}
 		});
 		btnMenu.setBounds(2, 2, 40, 39);
 		contentPane.add(btnMenu);
-		
+
 		JLabel lblidAgencia = new JLabel("ID Agencia: ");
 		lblidAgencia.setBounds(10, 425, 69, 14);
 		contentPane.add(lblidAgencia);
-		
+
 		txtidagencia = new JTextField();
 		txtidagencia.setColumns(10);
 		txtidagencia.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtidagencia.setBounds(81, 422, 46, 20);
 		contentPane.add(txtidagencia);
-		
+
 		JButton btnEliminar = new JButton("");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -231,41 +231,43 @@ public class frmAgencias extends JFrame {
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				//invocar metodo para eliminar registro
-				
+
+				// invocar metodo para eliminar registro
+
 				cr.delete(Integer.parseInt(txtidagencia.getText()));
-				
+
 			}
 		});
 		btnEliminar.setBorder(null);
-		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setIcon(
+				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEliminar.setBounds(127, 416, 40, 29);
 		btnEliminar.setContentAreaFilled(false);
 		contentPane.add(btnEliminar);
-		
-		
-		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
 
-			public void windowClosing(WindowEvent e) { 
+		// permite que la ventana pueda abrirse nuevamente
+		addWindowListener(new WindowAdapter() { 
 
-			instancia = null; 
+			public void windowClosing(WindowEvent e) {
+				//cuando se cierra la ventana, se libera la instanciapara permitir su reapertura 
+				instancia = null;
 
-			} 
+			}
 
-		}); 
+		});
 
-	}		 	 
-			public static frmAgencias getInstancia() {// se cambia al nombre correspondiente  
+	}
+	//metodo singleton para que solo haya una instancia activa a la vez 
+	public static frmAgencias getInstancia() {
 
-			 if (instancia == null) { 
+		//Si no existe una instancia se crea una nueva 
+		if (instancia == null) {
+			instancia = new frmAgencias();
 
-			 instancia = new frmAgencias(); 
+		}
+		//Retorna la unica instancia disponible
+		return instancia;
 
-			 } 
-
-			 return instancia; 
-
-	 } 
+	}
 }

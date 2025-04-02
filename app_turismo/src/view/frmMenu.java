@@ -18,6 +18,11 @@ import java.awt.event.WindowEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
+import java.awt.Cursor;
+import javax.swing.ImageIcon;
 
 public class frmMenu extends JFrame {
 
@@ -46,100 +51,133 @@ public class frmMenu extends JFrame {
 	 */
 	public frmMenu() {
 		setTitle("MENU");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\menu-hamburguesa.png"));
-		
-		
-		
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 312, 364);
+		setBounds(100, 100, 291, 364);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(221, 202, 221));
+		contentPane.setBackground(new Color(243, 238, 247));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		this.setLocation(50,50); 
-		
+
+		this.setLocation(50, 50); // Formulario en la esquina izq
+		this.setResizable(false); // No editable el tamaño del formulario
+
 		lblTitle = new JLabel("FORMULARIOS DE REGISTRO");
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitle.setBounds(0, 11, 296, 32);
 		contentPane.add(lblTitle);
-		
-		JLabel lblAgencias = new JLabel("Registro de Agencias............");
+
+		JLabel lblAgencias = new JLabel("Registro de Agencias...................................................");
 		lblAgencias.setBounds(10, 69, 213, 14);
 		contentPane.add(lblAgencias);
-		
-		JButton btnIrAgencias = new JButton("Ir");
+
+		JButton btnIrAgencias = new JButton("");
+		btnIrAgencias.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrAgencias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrAgencias.setBackground(new Color(243, 238, 247));
+		btnIrAgencias.setBorderPainted(false);
+		btnIrAgencias.setBorder(null);
 		btnIrAgencias.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmAgencias.getInstancia().setVisible(true);
-				
+
+				frmAgencias.getInstancia().setVisible(true); // llamar al formulario de registro de agencias
+
 			}
 		});
 		btnIrAgencias.setBounds(223, 65, 43, 23);
 		contentPane.add(btnIrAgencias);
-		
-		JLabel lblClientes = new JLabel("Registro de Clientes............");
+
+		JLabel lblClientes = new JLabel(
+				"Registro de Clientes.........................................................");
 		lblClientes.setBounds(10, 94, 213, 14);
 		contentPane.add(lblClientes);
-		
-		JButton btnIrClientes = new JButton("Ir");
+
+		JButton btnIrClientes = new JButton("");
+		btnIrClientes.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrClientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrClientes.setBackground(new Color(243, 238, 247));
+		btnIrClientes.setBorderPainted(false);
+		btnIrClientes.setBorder(null);
 		btnIrClientes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmClientes.getInstancia().setVisible(true);
-				
+
+				frmClientes.getInstancia().setVisible(true);// llamar al formulario de registro de clientes
+
 			}
 		});
 		btnIrClientes.setBounds(223, 90, 43, 23);
 		contentPane.add(btnIrClientes);
-		
-		JLabel lblCompanias = new JLabel("Registro de Compañias............");
+
+		JLabel lblCompanias = new JLabel("Registro de Compañias...................................");
 		lblCompanias.setBounds(10, 119, 213, 14);
 		contentPane.add(lblCompanias);
-		
-		JButton btnIrCompanias = new JButton("Ir");
+
+		JButton btnIrCompanias = new JButton("");
+		btnIrCompanias.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrCompanias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrCompanias.setBackground(new Color(243, 238, 247));
+		btnIrCompanias.setBorderPainted(false);
+		btnIrCompanias.setBorder(null);
 		btnIrCompanias.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmCompanias.getInstancia().setVisible(true);
-				
+
+				frmCompanias.getInstancia().setVisible(true);// llamar al formulario de registro de companias
+
 			}
 		});
 		btnIrCompanias.setBounds(223, 115, 43, 23);
 		contentPane.add(btnIrCompanias);
-		
-		JLabel lblMedios = new JLabel("Registro de Medios............");
+
+		JLabel lblMedios = new JLabel("Registro de Medios..........................................");
 		lblMedios.setBounds(10, 144, 213, 14);
 		contentPane.add(lblMedios);
-		
-		JButton btnIrMedios = new JButton("Ir");
+
+		JButton btnIrMedios = new JButton("");
+		btnIrMedios.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrMedios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrMedios.setBackground(new Color(243, 238, 247));
+		btnIrMedios.setBorderPainted(false);
+		btnIrMedios.setBorder(null);
 		btnIrMedios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				frmMedios.getInstancia().setVisible(true);
-				
+
+				frmMedios.getInstancia().setVisible(true);// llamar al formulario de registro de medios de comunicacion
+
 			}
 		});
 		btnIrMedios.setBounds(223, 140, 43, 23);
 		contentPane.add(btnIrMedios);
-		
-		JLabel lblOperadores = new JLabel("Registro de Operadores............");
+
+		JLabel lblOperadores = new JLabel(
+				"Registro de Operadores...........................................................");
 		lblOperadores.setBounds(10, 169, 213, 14);
 		contentPane.add(lblOperadores);
-		
-		JButton btnIrOperadores = new JButton("Ir");
+
+		JButton btnIrOperadores = new JButton("");
+		btnIrOperadores.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrOperadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrOperadores.setBackground(new Color(243, 238, 247));
+		btnIrOperadores.setBorderPainted(false);
+		btnIrOperadores.setBorder(null);
 		btnIrOperadores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmOperadores.getInstancia().setVisible(true);
+
+				frmOperadores.getInstancia().setVisible(true);// llamar al formulario de registro de operadores
+
 			}
 		});
 		btnIrOperadores.addActionListener(new ActionListener() {
@@ -148,34 +186,46 @@ public class frmMenu extends JFrame {
 		});
 		btnIrOperadores.setBounds(223, 165, 43, 23);
 		contentPane.add(btnIrOperadores);
-		
-		JLabel lblPaquetes = new JLabel("Registro de Paquetes............");
+
+		JLabel lblPaquetes = new JLabel("Registro de Paquetes.....................................");
 		lblPaquetes.setBounds(10, 194, 213, 14);
 		contentPane.add(lblPaquetes);
-		
-		JButton btnIrPaquetes = new JButton("Ir");
+
+		JButton btnIrPaquetes = new JButton("");
+		btnIrPaquetes.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrPaquetes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrPaquetes.setBackground(new Color(243, 238, 247));
+		btnIrPaquetes.setBorderPainted(false);
+		btnIrPaquetes.setBorder(null);
 		btnIrPaquetes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmPaquetes.getInstancia().setVisible(true);
-				
+
+				frmPaquetes.getInstancia().setVisible(true);// llamar al formulario de registro de Paquetes
+
 			}
 		});
 		btnIrPaquetes.setBounds(223, 190, 43, 23);
 		contentPane.add(btnIrPaquetes);
-		
-		JLabel lblPromotores = new JLabel("Registro de Promotores............");
+
+		JLabel lblPromotores = new JLabel("Registro de Promotores..........................");
 		lblPromotores.setBounds(10, 219, 213, 14);
 		contentPane.add(lblPromotores);
-		
-		JButton btnIrPromotores = new JButton("Ir");
+
+		JButton btnIrPromotores = new JButton("");
+		btnIrPromotores.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrPromotores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrPromotores.setBackground(new Color(243, 238, 247));
+		btnIrPromotores.setBorderPainted(false);
+		btnIrPromotores.setBorder(null);
 		btnIrPromotores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmPromotores.getInstancia().setVisible(true);
-				
+
+				frmPromotores.getInstancia().setVisible(true);// llamar al formulario de registro de promotores
+
 			}
 		});
 		btnIrPromotores.addActionListener(new ActionListener() {
@@ -184,76 +234,93 @@ public class frmMenu extends JFrame {
 		});
 		btnIrPromotores.setBounds(223, 215, 43, 23);
 		contentPane.add(btnIrPromotores);
-		
-		JLabel lblTipoMedio = new JLabel("Registro de Tipos de Medios............");
+
+		JLabel lblTipoMedio = new JLabel("Registro de Tipos de Medios................................");
 		lblTipoMedio.setBounds(10, 246, 213, 14);
 		contentPane.add(lblTipoMedio);
-		
-		JButton btnTipoMedio = new JButton("Ir");
+
+		JButton btnTipoMedio = new JButton("");
+		btnTipoMedio.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnTipoMedio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnTipoMedio.setBackground(new Color(243, 238, 247));
+		btnTipoMedio.setBorderPainted(false);
+		btnTipoMedio.setBorder(null);
 		btnTipoMedio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmTipomedio.getInstancia().setVisible(true);
+
+				frmTipomedio.getInstancia().setVisible(true);// llamar al formulario de registro de tipos de medios
 			}
 		});
 		btnTipoMedio.setBounds(223, 240, 43, 23);
 		contentPane.add(btnTipoMedio);
-		
-		JLabel lblTipoTransporte = new JLabel("Registro de Tipos de Transporte............");
+
+		JLabel lblTipoTransporte = new JLabel("Registro de Tipos de Transporte....................");
 		lblTipoTransporte.setBounds(10, 271, 213, 14);
 		contentPane.add(lblTipoTransporte);
-		
-		JButton btnIrTransporte = new JButton("Ir");
+
+		JButton btnIrTransporte = new JButton("");
+		btnIrTransporte.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrTransporte.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrTransporte.setBackground(new Color(243, 238, 247));
+		btnIrTransporte.setBorderPainted(false);
+		btnIrTransporte.setBorder(null);
 		btnIrTransporte.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmTipoTransporte.getInstancia().setVisible(true);
-				
+
+				frmTipoTransporte.getInstancia().setVisible(true);// llamar al formulario de registro de tipos de transporte
+
 			}
 		});
 		btnIrTransporte.setBounds(223, 267, 43, 23);
 		contentPane.add(btnIrTransporte);
-		
-		JLabel lblVehiculo = new JLabel("Registro de Vehiculos............");
+
+		JLabel lblVehiculo = new JLabel("Registro de Vehiculos.....................................");
 		lblVehiculo.setBounds(10, 296, 213, 14);
 		contentPane.add(lblVehiculo);
-		
-		JButton btnIrVehiculos = new JButton("Ir");
+
+		JButton btnIrVehiculos = new JButton("");
+		btnIrVehiculos.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrVehiculos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrVehiculos.setBackground(new Color(243, 238, 247));
+		btnIrVehiculos.setBorderPainted(false);
+		btnIrVehiculos.setBorder(null);
 		btnIrVehiculos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				frmVehiculos.getInstancia().setVisible(true);
+
+				frmVehiculos.getInstancia().setVisible(true);// llamar al formulario de registro de Vehiculos
 			}
 		});
 		btnIrVehiculos.setBounds(223, 292, 43, 23);
 		contentPane.add(btnIrVehiculos);
-		
-		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana 
 
-			 
+		// permite que la ventana pueda abrirse nuevamente
+		addWindowListener(new WindowAdapter() { 
 
-		public void windowClosing(WindowEvent e) { 
+			public void windowClosing(WindowEvent e) { 
+				//cuando se cierra la ventana, se libera la instanciapara permitir su reapertura 
+				instancia = null;
 
-			instancia = null; 
+			}
 
-		} 
+		});
 
-	}); 
+	}
+	//metodo singleton para que solo haya una instancia activa a la vez 
+	public static frmMenu getInstancia() {
 
-} 			 
-		public static frmMenu getInstancia() {// se cambia al nombre correspondiente  
+		//Si no existe una instancia se crea una nueva 
+		if (instancia == null) {
+			instancia = new frmMenu();
+		}
+		//Retorna la unica instancia disponible
+		return instancia;
 
-			 if (instancia == null) { 
+	}
 
-				 instancia = new frmMenu(); 
-			 } 
-
-			 return instancia; 
-
-			} 
-		
-			
 }
