@@ -11,6 +11,9 @@ public class Companias {
 	
 	Conexion conector = new Conexion();
 	
+	
+
+
 	public String razonsocial;
 	public String telefono;
 	public String direccion;
@@ -36,7 +39,7 @@ public class Companias {
 		super();
 	}
 
-
+	
 
 	public String getRazonsocial() {
 		return razonsocial;
@@ -137,4 +140,42 @@ public class Companias {
 				}
 			
 		}
+		
+		
+		public void update(int idcompania, String razonsocial, String telefono, String direccion, String correo,
+				String fechacreacion, String web) {
+			
+			Connection dbConnection = null;
+			PreparedStatement pst = null; //Preparar la trx
+			
+			String script = "update tblcompanias set razonsocial = ?,telefono = ? , direccion = ?,correo = ?,  fechacreacion = ?, web = ?  where idcompania = ?;";
+			
+			try { 
+				dbConnection = conector.conectarBD(); //abrir la conexion
+				pst = dbConnection.prepareStatement(script); //abrir el buffer
+				
+				//parametrizar los campos
+				
+				pst.setInt(1 , idcompania);
+				pst.setString(2, razonsocial);
+				pst.setString(3, telefono);
+				pst.setString(4, direccion);
+				pst.setString(5, correo);
+				pst.setString(6, fechacreacion);
+				pst.setString(7, web);
+				
+				// confirmar la operacion
+	 			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
+	 
+	 			if (resp == JOptionPane.OK_OPTION) {
+	 				pst.executeUpdate();
+	 				JOptionPane.showConfirmDialog(null, "fila actualizada");		
+	 			}
+	 			 
+	 		} catch (SQLException e) {
+	 			System.out.println(e.getMessage());
+	 		}
+		}
+		
+		
 }

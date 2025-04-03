@@ -28,6 +28,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class frmAgencias extends JFrame {
 
@@ -66,7 +69,7 @@ public class frmAgencias extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(
 				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\agencia-de-viajes.png"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 319, 507);
+		setBounds(100, 100, 292, 487);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
 		contentPane.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -80,64 +83,64 @@ public class frmAgencias extends JFrame {
 		JLabel lbltITitle = new JLabel("REGISTRO DE AGENCIAS");
 		lbltITitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lbltITitle.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lbltITitle.setBounds(60, 33, 201, 39);
+		lbltITitle.setBounds(37, 33, 201, 39);
 		contentPane.add(lbltITitle);
 
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(37, 101, 111, 14);
+		lblNombre.setBounds(31, 117, 111, 14);
 		contentPane.add(lblNombre);
 
 		txtNombre = new JTextField();
 		txtNombre.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtNombre.setBounds(37, 117, 215, 20);
+		txtNombre.setBounds(31, 133, 215, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Telefono:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel.setBounds(37, 148, 215, 14);
+		lblNewLabel.setBounds(31, 164, 215, 14);
 		contentPane.add(lblNewLabel);
 
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
 		txtTelefono.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtTelefono.setBounds(37, 162, 215, 20);
+		txtTelefono.setBounds(31, 178, 215, 20);
 		contentPane.add(txtTelefono);
 
 		JLabel lblDireccion = new JLabel("Direccion:");
-		lblDireccion.setBounds(37, 193, 215, 14);
+		lblDireccion.setBounds(31, 209, 215, 14);
 		contentPane.add(lblDireccion);
 
 		txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
 		txtDireccion.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtDireccion.setBounds(37, 206, 215, 20);
+		txtDireccion.setBounds(31, 222, 215, 20);
 		contentPane.add(txtDireccion);
 
 		JLabel lblCorreo = new JLabel("Correo Electronico:");
-		lblCorreo.setBounds(37, 237, 215, 14);
+		lblCorreo.setBounds(31, 253, 215, 14);
 		contentPane.add(lblCorreo);
 
 		txtCorreo = new JTextField();
 		txtCorreo.setHorizontalAlignment(SwingConstants.LEFT);
 		txtCorreo.setColumns(10);
 		txtCorreo.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtCorreo.setBounds(37, 250, 215, 20);
+		txtCorreo.setBounds(31, 266, 215, 20);
 		contentPane.add(txtCorreo);
 
 		JLabel lblWeb = new JLabel("Pagina Web:");
-		lblWeb.setBounds(37, 281, 215, 14);
+		lblWeb.setBounds(31, 297, 215, 14);
 		contentPane.add(lblWeb);
 
 		txtWeb = new JTextField();
 		txtWeb.setHorizontalAlignment(SwingConstants.LEFT);
 		txtWeb.setColumns(10);
 		txtWeb.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtWeb.setBounds(37, 295, 215, 20);
+		txtWeb.setBounds(31, 311, 215, 20);
 		contentPane.add(txtWeb);
 
 		JLabel lblIdCompania = new JLabel("Compañia:");
-		lblIdCompania.setBounds(37, 326, 215, 14);
+		lblIdCompania.setBounds(31, 342, 215, 14);
 		contentPane.add(lblIdCompania);
 
 		JButton btnRegistrar = new JButton("REGISTRAR");
@@ -159,14 +162,14 @@ public class frmAgencias extends JFrame {
 		btnRegistrar.setBackground(new Color(240, 234, 244));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnRegistrar.setBounds(99, 370, 101, 29);
+		btnRegistrar.setBounds(87, 386, 101, 29);
 		contentPane.add(btnRegistrar);
 
 		txtCompania = new JTextField();
 		txtCompania.setHorizontalAlignment(SwingConstants.LEFT);
 		txtCompania.setColumns(10);
 		txtCompania.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtCompania.setBounds(37, 339, 215, 20);
+		txtCompania.setBounds(31, 355, 215, 20);
 		contentPane.add(txtCompania);
 
 		JButton btnLimpiar = new JButton("");
@@ -188,7 +191,7 @@ public class frmAgencias extends JFrame {
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setContentAreaFilled(false);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
-		btnLimpiar.setBounds(197, 370, 46, 29);
+		btnLimpiar.setBounds(190, 386, 46, 29);
 		contentPane.add(btnLimpiar);
 
 		JButton btnMenu = new JButton("");
@@ -214,13 +217,13 @@ public class frmAgencias extends JFrame {
 		contentPane.add(btnMenu);
 
 		JLabel lblidAgencia = new JLabel("ID Agencia: ");
-		lblidAgencia.setBounds(10, 425, 69, 14);
+		lblidAgencia.setBounds(31, 92, 69, 14);
 		contentPane.add(lblidAgencia);
 
 		txtidagencia = new JTextField();
 		txtidagencia.setColumns(10);
 		txtidagencia.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtidagencia.setBounds(81, 422, 46, 20);
+		txtidagencia.setBounds(102, 89, 46, 20);
 		contentPane.add(txtidagencia);
 
 		JButton btnEliminar = new JButton("");
@@ -242,9 +245,27 @@ public class frmAgencias extends JFrame {
 		btnEliminar.setIcon(
 				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEliminar.setBounds(127, 416, 40, 29);
+		btnEliminar.setBounds(190, 83, 35, 29);
 		btnEliminar.setContentAreaFilled(false);
 		contentPane.add(btnEliminar);
+		
+		JButton btnConsultar = new JButton("");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				cr.read(Integer.parseInt(txtidagencia.getText()),txtNombre, txtTelefono, txtDireccion, txtCorreo,
+						txtWeb, txtCompania);
+
+				
+			}
+		});
+		btnConsultar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
+		btnConsultar.setContentAreaFilled(false);
+		btnConsultar.setBorder(null);
+		btnConsultar.setBounds(149, 83, 35, 29);
+		contentPane.add(btnConsultar);
 
 		// permite que la ventana pueda abrirse nuevamente
 		addWindowListener(new WindowAdapter() { 
