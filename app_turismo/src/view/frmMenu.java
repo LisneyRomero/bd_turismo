@@ -51,9 +51,8 @@ public class frmMenu extends JFrame {
 	 */
 	public frmMenu() {
 		setTitle("MENU");
-		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
-
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resource/casa.png")));//mostrar el icono
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 291, 364);
 		contentPane = new JPanel();
@@ -77,8 +76,11 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblAgencias);
 
 		JButton btnIrAgencias = new JButton("");
-		btnIrAgencias.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrAgencias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnIrAgencias.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png"))); //para que los iconos se sigan mostrando
 		btnIrAgencias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAgencias.setBackground(new Color(243, 238, 247));
 		btnIrAgencias.setBorderPainted(false);
@@ -100,8 +102,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblClientes);
 
 		JButton btnIrClientes = new JButton("");
-		btnIrClientes.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrClientes.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnIrClientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrClientes.setBackground(new Color(243, 238, 247));
 		btnIrClientes.setBorderPainted(false);
@@ -122,8 +123,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblCompanias);
 
 		JButton btnIrCompanias = new JButton("");
-		btnIrCompanias.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrCompanias.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnIrCompanias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrCompanias.setBackground(new Color(243, 238, 247));
 		btnIrCompanias.setBorderPainted(false);
@@ -144,8 +144,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblMedios);
 
 		JButton btnIrMedios = new JButton("");
-		btnIrMedios.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrMedios.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnIrMedios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrMedios.setBackground(new Color(243, 238, 247));
 		btnIrMedios.setBorderPainted(false);
@@ -166,8 +165,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblOperadores);
 
 		JButton btnIrOperadores = new JButton("");
-		btnIrOperadores.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrOperadores.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnIrOperadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrOperadores.setBackground(new Color(243, 238, 247));
 		btnIrOperadores.setBorderPainted(false);
@@ -192,8 +190,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblPaquetes);
 
 		JButton btnIrPaquetes = new JButton("");
-		btnIrPaquetes.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrPaquetes.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnIrPaquetes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrPaquetes.setBackground(new Color(243, 238, 247));
 		btnIrPaquetes.setBorderPainted(false);
@@ -214,8 +211,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblPromotores);
 
 		JButton btnIrPromotores = new JButton("");
-		btnIrPromotores.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrPromotores.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnIrPromotores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrPromotores.setBackground(new Color(243, 238, 247));
 		btnIrPromotores.setBorderPainted(false);
@@ -240,8 +236,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblTipoMedio);
 
 		JButton btnTipoMedio = new JButton("");
-		btnTipoMedio.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnTipoMedio.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnTipoMedio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnTipoMedio.setBackground(new Color(243, 238, 247));
 		btnTipoMedio.setBorderPainted(false);
@@ -261,9 +256,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblTipoTransporte);
 
 		JButton btnIrTransporte = new JButton("");
-		btnIrTransporte.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
-		btnIrTransporte.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIrTransporte.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnIrTransporte.setBackground(new Color(243, 238, 247));
 		btnIrTransporte.setBorderPainted(false);
 		btnIrTransporte.setBorder(null);
@@ -283,8 +276,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblVehiculo);
 
 		JButton btnIrVehiculos = new JButton("");
-		btnIrVehiculos.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\circulo-de-flecha.png"));
+		btnIrVehiculos.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
 		btnIrVehiculos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrVehiculos.setBackground(new Color(243, 238, 247));
 		btnIrVehiculos.setBorderPainted(false);
