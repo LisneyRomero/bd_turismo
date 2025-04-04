@@ -2,8 +2,10 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -139,43 +141,39 @@ public class Companias {
 					System.out.println(e.getMessage());
 				}
 			
-		}
-		
-		
-		public void update(int idcompania, String razonsocial, String telefono, String direccion, String correo,
-				String fechacreacion, String web) {
-			
-			Connection dbConnection = null;
-			PreparedStatement pst = null; //Preparar la trx
-			
-			String script = "update tblcompanias set razonsocial = ?,telefono = ? , direccion = ?,correo = ?,  fechacreacion = ?, web = ?  where idcompania = ?;";
-			
-			try { 
-				dbConnection = conector.conectarBD(); //abrir la conexion
-				pst = dbConnection.prepareStatement(script); //abrir el buffer
-				
-				//parametrizar los campos
-				
-				pst.setInt(1 , idcompania);
-				pst.setString(2, razonsocial);
-				pst.setString(3, telefono);
-				pst.setString(4, direccion);
-				pst.setString(5, correo);
-				pst.setString(6, fechacreacion);
-				pst.setString(7, web);
-				
-				// confirmar la operacion
-	 			int resp = JOptionPane.showConfirmDialog(null, "¿desea actualizar esta fila?");
-	 
-	 			if (resp == JOptionPane.OK_OPTION) {
-	 				pst.executeUpdate();
-	 				JOptionPane.showConfirmDialog(null, "fila actualizada");		
-	 			}
-	 			 
-	 		} catch (SQLException e) {
-	 			System.out.println(e.getMessage());
-	 		}
-		}
-		
+		}		
+		// Consultar registros
+				public void read(int idcompania, JTextField razonsocial, JTextField telefono, JTextField direccion, JTextField correo,
+						JTextField fechacreacion, JTextField web) {
+
+					Connection dbConnection = null;
+					PreparedStatement pst = null; // Preparar la trx
+
+					String script = "SELECT * FROM tblcompanias WHERE idcompania = ?";
+
+					try {
+						dbConnection = conector.conectarBD(); // abrir la conexion
+						pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+						// parametrizar el campo
+						pst.setInt(1, idcompania);
+						ResultSet rs = pst.executeQuery();// Almacenamiento temporal
+
+						// confirmar la operacion
+						while (rs.next()) {
+							razonsocial.setText(rs.getString(2));
+							telefono.setText(rs.getString(3));
+							direccion.setText(rs.getString(4));
+							correo.setText(rs.getString(5));
+							fechacreacion.setText(rs.getString(6));
+							web.setText(rs.getString(7));
+
+						}
+					} catch (SQLException e) {
+						System.out.println(e.getMessage());
+					}
+
+				}
+
 		
 }

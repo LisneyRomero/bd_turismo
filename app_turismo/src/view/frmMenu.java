@@ -68,7 +68,7 @@ public class frmMenu extends JFrame {
 		lblTitle = new JLabel("FORMULARIOS DE REGISTRO");
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setBounds(0, 11, 296, 32);
+		lblTitle.setBounds(0, 11, 265, 32);
 		contentPane.add(lblTitle);
 
 		JLabel lblAgencias = new JLabel("Registro de Agencias...................................................");
@@ -295,7 +295,7 @@ public class frmMenu extends JFrame {
 		addWindowListener(new WindowAdapter() { 
 
 			public void windowClosing(WindowEvent e) { 
-				//cuando se cierra la ventana, se libera la instanciapara permitir su reapertura 
+				//cuando se cierra la ventana, se libera la instancia para permitir su reapertura 
 				instancia = null;
 
 			}

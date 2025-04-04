@@ -85,68 +85,68 @@ public class frmOperadores extends JFrame {
 		contentPane.add(lblTitle);
 
 		JLabel lbltipoDocumento = new JLabel("Tipo de Documento:");
-		lbltipoDocumento.setBounds(43, 90, 155, 14);
+		lbltipoDocumento.setBounds(43, 134, 155, 14);
 		contentPane.add(lbltipoDocumento);
 
 		txtTipoDoc = new JTextField();
 		txtTipoDoc.setToolTipText("1. Cedula de Ciudadania \r\n\r\n2. Cedula de Extrangeria \r\n\r\n3. Pasaporte ");
 		txtTipoDoc.setColumns(10);
 		txtTipoDoc.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtTipoDoc.setBounds(43, 103, 155, 20);
+		txtTipoDoc.setBounds(43, 147, 155, 20);
 		contentPane.add(txtTipoDoc);
 
 		JLabel lblDocumento = new JLabel("Documento:");
-		lblDocumento.setBounds(237, 90, 107, 14);
+		lblDocumento.setBounds(237, 134, 107, 14);
 		contentPane.add(lblDocumento);
 
 		txtDocumento = new JTextField();
 		txtDocumento.setColumns(10);
 		txtDocumento.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtDocumento.setBounds(237, 103, 155, 20);
+		txtDocumento.setBounds(237, 147, 155, 20);
 		contentPane.add(txtDocumento);
 
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(43, 150, 107, 14);
+		lblNombre.setBounds(43, 194, 107, 14);
 		contentPane.add(lblNombre);
 
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
 		txtNombre.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtNombre.setBounds(43, 163, 155, 20);
+		txtNombre.setBounds(43, 207, 155, 20);
 		contentPane.add(txtNombre);
 
 		JLabel lblApellido = new JLabel("Apellido:");
-		lblApellido.setBounds(237, 150, 107, 14);
+		lblApellido.setBounds(237, 194, 107, 14);
 		contentPane.add(lblApellido);
 
 		txtApellido = new JTextField();
 		txtApellido.setColumns(10);
 		txtApellido.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtApellido.setBounds(237, 163, 155, 20);
+		txtApellido.setBounds(237, 207, 155, 20);
 		contentPane.add(txtApellido);
 
 		JLabel lblDireccion = new JLabel("Direccion:");
-		lblDireccion.setBounds(43, 207, 107, 14);
+		lblDireccion.setBounds(43, 251, 107, 14);
 		contentPane.add(lblDireccion);
 
 		txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
 		txtDireccion.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtDireccion.setBounds(43, 220, 155, 20);
+		txtDireccion.setBounds(43, 264, 155, 20);
 		contentPane.add(txtDireccion);
 
 		JLabel lblCorreo = new JLabel("Correo Personal:");
-		lblCorreo.setBounds(237, 207, 155, 14);
+		lblCorreo.setBounds(237, 251, 155, 14);
 		contentPane.add(lblCorreo);
 
 		txtCorreo = new JTextField();
 		txtCorreo.setColumns(10);
 		txtCorreo.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtCorreo.setBounds(237, 220, 155, 20);
+		txtCorreo.setBounds(237, 264, 155, 20);
 		contentPane.add(txtCorreo);
 
 		JLabel lblIdvehiculo = new JLabel("ID vehiculo");
-		lblIdvehiculo.setBounds(237, 267, 155, 14);
+		lblIdvehiculo.setBounds(237, 311, 155, 14);
 		contentPane.add(lblIdvehiculo);
 
 		txtIdVehiculo = new JTextField();
@@ -154,17 +154,17 @@ public class frmOperadores extends JFrame {
 		txtIdVehiculo.setSelectionColor(new Color(0, 128, 255));
 		txtIdVehiculo.setColumns(10);
 		txtIdVehiculo.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtIdVehiculo.setBounds(237, 280, 155, 20);
+		txtIdVehiculo.setBounds(237, 324, 155, 20);
 		contentPane.add(txtIdVehiculo);
 
 		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(43, 267, 155, 14);
+		lblTelefono.setBounds(43, 311, 155, 14);
 		contentPane.add(lblTelefono);
 
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
 		txtTelefono.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtTelefono.setBounds(43, 280, 155, 20);
+		txtTelefono.setBounds(43, 324, 155, 20);
 		contentPane.add(txtTelefono);
 
 		JButton btnRegistrar = new JButton("REGISTRAR");
@@ -184,7 +184,7 @@ public class frmOperadores extends JFrame {
 				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnRegistrar.setBackground(new Color(240, 234, 244));
-		btnRegistrar.setBounds(156, 325, 123, 41);
+		btnRegistrar.setBounds(156, 369, 123, 41);
 		contentPane.add(btnRegistrar);
 
 		JButton btnLimpiar = new JButton("");
@@ -213,7 +213,7 @@ public class frmOperadores extends JFrame {
 				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
-		btnLimpiar.setBounds(281, 329, 40, 33);
+		btnLimpiar.setBounds(281, 373, 40, 33);
 		btnLimpiar.setContentAreaFilled(false);
 		contentPane.add(btnLimpiar);
 
@@ -235,13 +235,13 @@ public class frmOperadores extends JFrame {
 		contentPane.add(btnMenu);
 
 		JLabel lblIdOperadores = new JLabel("ID Operadores:");
-		lblIdOperadores.setBounds(25, 386, 89, 14);
+		lblIdOperadores.setBounds(43, 89, 89, 14);
 		contentPane.add(lblIdOperadores);
 
 		txtidoperadores = new JTextField();
 		txtidoperadores.setColumns(10);
 		txtidoperadores.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtidoperadores.setBounds(118, 383, 46, 20);
+		txtidoperadores.setBounds(136, 86, 46, 20);
 		contentPane.add(txtidoperadores);
 
 		JButton btnEliminar = new JButton("");
@@ -263,10 +263,14 @@ public class frmOperadores extends JFrame {
 				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
-		btnEliminar.setBounds(164, 377, 40, 29);
+		btnEliminar.setBounds(224, 80, 33, 29);
 		contentPane.add(btnEliminar);
 
 		JButton btnConsultar = new JButton("");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -280,7 +284,7 @@ public class frmOperadores extends JFrame {
 				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
 		btnConsultar.setContentAreaFilled(false);
 		btnConsultar.setBorder(null);
-		btnConsultar.setBounds(244, 377, 35, 29);
+		btnConsultar.setBounds(184, 80, 35, 29);
 		contentPane.add(btnConsultar);
 		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { lblTitle, lbltipoDocumento,
 				txtTipoDoc, lblDocumento, txtDocumento, lblNombre, txtNombre, lblApellido, txtApellido, lblDireccion,

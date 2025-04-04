@@ -2,9 +2,12 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -111,7 +114,35 @@ public void create (String nombre, String observaciones) {
 			}
 		
 	}
-	
+	// Consultar registros
+	public void read(int idtipotransporte, JTextField nombre, JTextArea observaciones) {
+
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // Preparar la trx
+
+		String script = "SELECT * FROM tbltipotransporte WHERE idtipotransporte = ?";
+
+		try {
+			dbConnection = conector.conectarBD(); // abrir la conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar el campo
+			pst.setInt(1, idtipotransporte);
+			ResultSet rs = pst.executeQuery();// Almacenamiento temporal
+
+			// confirmar la operacion
+			while (rs.next()) {
+				nombre.setText(rs.getString(2));
+				observaciones.setText(rs.getString(3));
+				
+
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 	
 	
 }

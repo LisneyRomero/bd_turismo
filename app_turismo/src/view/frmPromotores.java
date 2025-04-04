@@ -61,6 +61,7 @@ public class frmPromotores extends JFrame {
 	 * Create the frame.
 	 */
 	public frmPromotores() {
+		setResizable(false);
 		setTitle("REGISTRO DE PROMOTORES");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\nueva-cuenta.png"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -81,7 +82,7 @@ public class frmPromotores extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lbltipoDocumento = new JLabel("Tipo de Documento:");
-		lbltipoDocumento.setBounds(42, 89, 155, 14);
+		lbltipoDocumento.setBounds(41, 114, 155, 14);
 		contentPane.add(lbltipoDocumento);
 		
 		txtTipoDoc = new JTextField();
@@ -89,72 +90,72 @@ public class frmPromotores extends JFrame {
 				+ "\r\n2. Cedula de Extrangeria"
 				+ "\r\n3. Pasaporte ");
 		txtTipoDoc.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtTipoDoc.setBounds(42, 102, 155, 20);
+		txtTipoDoc.setBounds(41, 127, 155, 20);
 		contentPane.add(txtTipoDoc);
 		txtTipoDoc.setColumns(10);
 		
 		JLabel lblDocuemento = new JLabel("Documento:");
-		lblDocuemento.setBounds(236, 89, 107, 14);
+		lblDocuemento.setBounds(235, 114, 107, 14);
 		contentPane.add(lblDocuemento);
 		
 		txtDoc = new JTextField();
 		txtDoc.setColumns(10);
 		txtDoc.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtDoc.setBounds(236, 102, 155, 20);
+		txtDoc.setBounds(235, 127, 155, 20);
 		contentPane.add(txtDoc);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(42, 149, 107, 14);
+		lblNombre.setBounds(41, 174, 107, 14);
 		contentPane.add(lblNombre);
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
 		txtNombre.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtNombre.setBounds(42, 162, 155, 20);
+		txtNombre.setBounds(41, 187, 155, 20);
 		contentPane.add(txtNombre);
 		
 		JLabel lblApellido = new JLabel("Apellido:");
-		lblApellido.setBounds(236, 149, 107, 14);
+		lblApellido.setBounds(235, 174, 107, 14);
 		contentPane.add(lblApellido);
 		
 		txtApellido = new JTextField();
 		txtApellido.setColumns(10);
 		txtApellido.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtApellido.setBounds(236, 162, 155, 20);
+		txtApellido.setBounds(235, 187, 155, 20);
 		contentPane.add(txtApellido);
 		
 		JLabel lblDireccion = new JLabel("Direccion:");
-		lblDireccion.setBounds(42, 206, 107, 14);
+		lblDireccion.setBounds(41, 231, 107, 14);
 		contentPane.add(lblDireccion);
 		
 		txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
 		txtDireccion.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtDireccion.setBounds(42, 219, 155, 20);
+		txtDireccion.setBounds(41, 244, 155, 20);
 		contentPane.add(txtDireccion);
 		
 		JLabel lblCorreo = new JLabel("Correo Personal:");
-		lblCorreo.setBounds(236, 206, 155, 14);
+		lblCorreo.setBounds(235, 231, 155, 14);
 		contentPane.add(lblCorreo);
 		
 		txtCorreo = new JTextField();
 		txtCorreo.setColumns(10);
 		txtCorreo.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtCorreo.setBounds(236, 219, 155, 20);
+		txtCorreo.setBounds(235, 244, 155, 20);
 		contentPane.add(txtCorreo);
 		
 		JLabel lblCorreoCorp = new JLabel("Correo Corporativo:");
-		lblCorreoCorp.setBounds(42, 266, 155, 14);
+		lblCorreoCorp.setBounds(41, 291, 155, 14);
 		contentPane.add(lblCorreoCorp);
 		
 		txtCorreoCorp = new JTextField();
 		txtCorreoCorp.setColumns(10);
 		txtCorreoCorp.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtCorreoCorp.setBounds(42, 279, 155, 20);
+		txtCorreoCorp.setBounds(41, 304, 155, 20);
 		contentPane.add(txtCorreoCorp);
 		
 		JLabel lblFecha = new JLabel("Fecha de Nacimiento:");
-		lblFecha.setBounds(236, 266, 155, 14);
+		lblFecha.setBounds(235, 291, 155, 14);
 		contentPane.add(lblFecha);
 		
 		txtFecha = new JTextField();
@@ -162,17 +163,17 @@ public class frmPromotores extends JFrame {
 		txtFecha.setToolTipText("AAAA-MM-DD\r\n");
 		txtFecha.setColumns(10);
 		txtFecha.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtFecha.setBounds(236, 279, 155, 20);
+		txtFecha.setBounds(235, 304, 155, 20);
 		contentPane.add(txtFecha);
 		
 		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(42, 321, 155, 14);
+		lblTelefono.setBounds(41, 346, 155, 14);
 		contentPane.add(lblTelefono);
 		
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
 		txtTelefono.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtTelefono.setBounds(42, 334, 155, 20);
+		txtTelefono.setBounds(41, 359, 155, 20);
 		contentPane.add(txtTelefono);
 		
 		JButton btnRegistrar = new JButton("REGISTRAR");
@@ -194,7 +195,7 @@ public class frmPromotores extends JFrame {
 		btnRegistrar.setBackground(new Color(240, 234, 244));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
-		btnRegistrar.setBounds(149, 378, 123, 33);
+		btnRegistrar.setBounds(148, 403, 123, 33);
 		contentPane.add(btnRegistrar);
 		
 		JButton btnMenu_1 = new JButton("");
@@ -230,17 +231,17 @@ public class frmPromotores extends JFrame {
 		btnLimpiar_1.setContentAreaFilled(false);
 		btnLimpiar_1.setBorder(null);
 		btnLimpiar_1.setBackground(new Color(240, 234, 244));
-		btnLimpiar_1.setBounds(274, 378, 40, 33);
+		btnLimpiar_1.setBounds(273, 403, 40, 33);
 		contentPane.add(btnLimpiar_1);
 		
 		JLabel lblCodigo = new JLabel("ID Promotores:");
-		lblCodigo.setBounds(21, 432, 93, 14);
+		lblCodigo.setBounds(41, 80, 93, 14);
 		contentPane.add(lblCodigo);
 		
 		txtidpromotores = new JTextField();
 		txtidpromotores.setColumns(10);
 		txtidpromotores.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtidpromotores.setBounds(119, 428, 46, 20);
+		txtidpromotores.setBounds(139, 74, 46, 20);
 		contentPane.add(txtidpromotores);
 		
 		JButton btnEliminar = new JButton("");
@@ -256,8 +257,23 @@ public class frmPromotores extends JFrame {
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
-		btnEliminar.setBounds(165, 422, 40, 29);
+		btnEliminar.setBounds(232, 70, 33, 29);
 		contentPane.add(btnEliminar);
+		
+		JButton btnConsultar = new JButton("");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				cr.read(Integer.parseInt(txtidpromotores.getText()),txtTipoDoc,txtDoc,txtNombre,txtApellido,txtDireccion,txtCorreo,
+				txtCorreoCorp,txtFecha,	txtTelefono);
+			}
+		});
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
+		btnConsultar.setContentAreaFilled(false);
+		btnConsultar.setBorder(null);
+		btnConsultar.setBounds(191, 70, 35, 29);
+		contentPane.add(btnConsultar);
 	
 		
 		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  

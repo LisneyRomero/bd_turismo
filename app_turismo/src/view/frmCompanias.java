@@ -40,7 +40,7 @@ public class frmCompanias extends JFrame {
 	private JTextField txtCorreo;
 	private JTextField txtFechaCreacion;
 	private JTextField txtWeb;
-	private JButton btnResgistrar;
+	private JButton btnRegistrar;
 	private JButton btnLimpiar;
 	private static frmCompanias instancia;
 	Companias cr = new Companias();
@@ -150,26 +150,26 @@ public class frmCompanias extends JFrame {
 		txtWeb.setBounds(34, 398, 267, 27);
 		contentPane.add(txtWeb);
 		
-		btnResgistrar = new JButton("REGISTRAR");
-		btnResgistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
-		btnResgistrar.setBackground(new Color(240, 234, 244));
-		btnResgistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btnResgistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnResgistrar.addMouseListener(new MouseAdapter() {
+		btnRegistrar = new JButton("REGISTRAR");
+		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
+		btnRegistrar.setBackground(new Color(240, 234, 244));
+		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				
+				// Registrar nuevos datos en la base de datos
 				cr.create(txtNombre.getText(), txtTelefono.getText(),txtDireccion.getText(),txtCorreo.getText(),txtFechaCreacion.getText(), txtWeb.getText());
 				
 			}
 		});
-		btnResgistrar.addActionListener(new ActionListener() {
+		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnResgistrar.setBounds(108, 436, 115, 32);
-		contentPane.add(btnResgistrar);
+		btnRegistrar.setBounds(108, 436, 115, 32);
+		contentPane.add(btnRegistrar);
 		
 		JLabel lblNewLabel = new JLabel("REGISTRO DE COMPAÑIAS");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -184,7 +184,7 @@ public class frmCompanias extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 							
-				
+				//limpiar campos del formulario
 				txtNombre.setText("");
 				txtTelefono.setText("");
 				txtDireccion.setText("");
@@ -212,7 +212,8 @@ public class frmCompanias extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				frmMenu.getInstancia().setVisible(true);
+				frmMenu.getInstancia().setVisible(true);//llamar al menu
+			
 			}
 		});
 		btnMenu.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
@@ -238,6 +239,7 @@ public class frmCompanias extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				//eliminar de la base de datos 
 				cr.delete(Integer.parseInt(txtidcompanias.getText()));
 				
 				
@@ -246,35 +248,30 @@ public class frmCompanias extends JFrame {
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
-		btnEliminar.setBounds(204, 69, 40, 29);
+		btnEliminar.setBounds(201, 71, 35, 29);
 		contentPane.add(btnEliminar);
 		
-		JButton btnActualizar = new JButton("");
-		btnActualizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnActualizar.addMouseListener(new MouseAdapter() {
+		JButton btnConsultar = new JButton("");
+		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				
-				cr.update(Integer.parseInt(txtidcompanias.getText()),txtNombre.getText(), txtTelefono.getText(),txtDireccion.getText(),txtCorreo.getText(),txtFechaCreacion.getText(), txtWeb.getText());
-				
-				
-				
+				//consultar datos de la base de datos
+				cr.read(Integer.parseInt(txtidcompanias.getText()),txtNombre,txtTelefono,txtDireccion,txtCorreo,txtFechaCreacion,txtWeb);
+						
 			}
 		});
-		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
-		btnActualizar.setContentAreaFilled(false);
-		btnActualizar.setBorder(null);
-		btnActualizar.setBounds(167, 69, 40, 29);
-		contentPane.add(btnActualizar);
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
+		btnConsultar.setContentAreaFilled(false);
+		btnConsultar.setBorder(null);
+		btnConsultar.setBounds(163, 71, 35, 29);
+		contentPane.add(btnConsultar);
 	
-		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
-
+		// permite que la ventana pueda abrirse nuevamente
+		addWindowListener(new WindowAdapter() { 
+			
 			public void windowClosing(WindowEvent e) { 
-
+			// cuando se cierra la ventana, se libera la instanciapara permitir su reapertura
 			instancia = null; 
 
 			} 
@@ -282,14 +279,16 @@ public class frmCompanias extends JFrame {
 		}); 
 
 	}		 	 
+		// metodo singleton para que solo haya una instancia activa a la vez
 			public static frmCompanias getInstancia() {// se cambia al nombre correspondiente  
 
+			// Si no existe una instancia se crea una nueva
 			 if (instancia == null) { 
-
 			 instancia = new frmCompanias(); 
 
 			 } 
-
+			 
+			// Retorna la unica instancia disponible
 			 return instancia; 
 
 	 } 

@@ -33,16 +33,17 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import javax.swing.JTextArea;
 
 public class frmTipomedio extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtObservaciones;
 	private JTextField txtNombre;
 	private static frmTipomedio instancia;
 	Tipomedio cr = new Tipomedio();
 	private JTextField txttiposmedios;
+
 	/**
 	 * Launch the application.
 	 */
@@ -63,46 +64,41 @@ public class frmTipomedio extends JFrame {
 	 */
 	public frmTipomedio() {
 		setPreferredSize(new Dimension(1, 1));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\medios-de-comunicacion.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\medios-de-comunicacion.png"));
 		setTitle("TIPOS DE MEDIOS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 331, 358);
+		setBounds(100, 100, 310, 358);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 234, 244));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		
-		this.setLocationRelativeTo(null);//centrar el formulario
-		
+
+		this.setLocationRelativeTo(null);// centrar el formulario
+
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lbltipomedio = new JLabel("Tipo de Medio: ");
-		lbltipomedio.setBounds(37, 48, 152, 28);
+		lbltipomedio.setBounds(28, 98, 152, 20);
 		contentPane.add(lbltipomedio);
-		
+
 		JLabel lblObservaciones = new JLabel("Observaciones:");
-		lblObservaciones.setBounds(37, 106, 114, 28);
+		lblObservaciones.setBounds(28, 150, 114, 20);
 		contentPane.add(lblObservaciones);
-		
-		txtObservaciones = new JTextField();
-		txtObservaciones.setName("");
-		txtObservaciones.setHorizontalAlignment(SwingConstants.LEFT);
-		txtObservaciones.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txtObservaciones.setColumns(10);
-		txtObservaciones.setBounds(37, 136, 221, 64);
-		contentPane.add(txtObservaciones);
-		
+		JTextArea txtaObservaciones = new JTextArea();
+		txtaObservaciones.setLineWrap(true);
+		txtaObservaciones.setBounds(28, 169, 221, 70);
+		contentPane.add(txtaObservaciones);
+
 		JButton btnregistrartipomedio = new JButton("REGISTRAR");
-		btnregistrartipomedio.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
+		btnregistrartipomedio.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
 		btnregistrartipomedio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
-				cr.create(txtNombre.getText(), txtObservaciones.getText());
-				
-						
-				
+
+				cr.create(txtNombre.getText(), txtaObservaciones.getText());
+
 			}
 		});
 		btnregistrartipomedio.setBackground(new Color(240, 234, 244));
@@ -110,67 +106,69 @@ public class frmTipomedio extends JFrame {
 		btnregistrartipomedio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnregistrartipomedio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
-		btnregistrartipomedio.setBounds(100, 219, 114, 28);
+		btnregistrartipomedio.setBounds(90, 263, 114, 28);
 		contentPane.add(btnregistrartipomedio);
-		
+
 		txtNombre = new JTextField();
 		txtNombre.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtNombre.setHorizontalAlignment(SwingConstants.LEFT);
-		txtNombre.setBounds(34, 75, 224, 20);
+		txtNombre.setBounds(25, 119, 224, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
-		
+
 		JLabel lblTitle = new JLabel("REGISTRO DE TIPOS DE MEDIOS");
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setBounds(54, 23, 207, 14);
+		lblTitle.setBounds(43, 23, 207, 14);
 		contentPane.add(lblTitle);
-		
+
 		JButton btnMenu_1 = new JButton("");
 		btnMenu_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				frmMenu.getInstancia().setVisible(true);
 			}
 		});
-		btnMenu_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu_1.setIcon(
+				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
 		btnMenu_1.setFocusable(false);
 		btnMenu_1.setContentAreaFilled(false);
 		btnMenu_1.setBorder(null);
 		btnMenu_1.setBounds(0, 0, 40, 39);
 		contentPane.add(btnMenu_1);
-		
+
 		JButton btnLimpiar = new JButton("");
 		btnLimpiar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				txtNombre.setText("");
-				txtObservaciones.setText("");
+				txtaObservaciones.setText("");
 			}
 		});
-		btnLimpiar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setIcon(new ImageIcon(
+				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
 		btnLimpiar.setContentAreaFilled(false);
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
-		btnLimpiar.setBounds(217, 218, 40, 33);
+		btnLimpiar.setBounds(208, 262, 40, 33);
 		contentPane.add(btnLimpiar);
-		
+
 		JLabel lblIdtiposmedios = new JLabel("ID Tipos de Medios:");
-		lblIdtiposmedios.setBounds(10, 276, 112, 14);
+		lblIdtiposmedios.setBounds(25, 63, 112, 14);
 		contentPane.add(lblIdtiposmedios);
-		
+
 		txttiposmedios = new JTextField();
 		txttiposmedios.setColumns(10);
 		txttiposmedios.setBorder(new EmptyBorder(1, 1, 1, 1));
-		txttiposmedios.setBounds(123, 273, 46, 20);
+		txttiposmedios.setBounds(138, 60, 46, 20);
 		contentPane.add(txttiposmedios);
-		
+
 		JButton btnEliminar = new JButton("");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -179,37 +177,59 @@ public class frmTipomedio extends JFrame {
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				cr.delete(Integer.parseInt(txttiposmedios.getText()));
 			}
 		});
-		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setIcon(
+				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
-		btnEliminar.setBounds(169, 267, 40, 29);
+		btnEliminar.setBounds(226, 55, 35, 29);
 		contentPane.add(btnEliminar);
 
-		addWindowListener(new WindowAdapter() { //cambio, para que se pueda abrir otra vez la ventana  
+		JButton btnConsultar = new JButton("");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				//Consultar datos de la base de datos
+				cr.read(Integer.parseInt(txttiposmedios.getText()), txtNombre, txtaObservaciones);
 
-			public void windowClosing(WindowEvent e) { 
+			}
+		});
+		btnConsultar.setIcon(
+				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
+		btnConsultar.setContentAreaFilled(false);
+		btnConsultar.setBorder(null);
+		btnConsultar.setBounds(188, 55, 35, 29);
+		contentPane.add(btnConsultar);
 
-			instancia = null; 
+		// permite que la ventana pueda abrirse nuevamente
+		addWindowListener(new WindowAdapter() {
 
-			} 
+			public void windowClosing(WindowEvent e) {
+				// cuando se cierra la ventana, se libera la instanciapara permitir su
+				// reapertura
+				instancia = null;
 
-		}); 
+			}
 
-	}		 	 
-			public static frmTipomedio getInstancia() {// se cambia al nombre correspondiente  
+		});
 
-			 if (instancia == null) { 
+	}
 
-			 instancia = new frmTipomedio(); 
+	// metodo singleton para que solo haya una instancia activa a la vez
+	public static frmTipomedio getInstancia() {// se cambia al nombre correspondiente
 
-			 } 
+		// Si no existe una instancia se crea una nueva
+		if (instancia == null) {
+			instancia = new frmTipomedio();
 
-			 return instancia; 
+		}
+		// Retorna la unica instancia disponible
+		return instancia;
 
-	 } 
-			
+	}
+
 }

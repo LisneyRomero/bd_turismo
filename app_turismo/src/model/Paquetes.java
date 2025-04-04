@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controler.Conexion;
@@ -291,13 +292,13 @@ public class Paquetes {
 
 		// Consultar registros
 				public void read(int codigo, JTextField iddestino, JTextField idorigen, JTextField fechaventa, JTextField horaventa, JTextField horasalida,
-						JTextField fechaejecucion, JTextField observaciones, JTextField idpromotores, JTextField idclientes, JTextField idagencia,
+						JTextField fechaejecucion, JTextArea observaciones, JTextField idpromotores, JTextField idclientes, JTextField idagencia,
 						JTextField idvehiculo, JTextField idmedios, JTextField  precios) {
 
 					Connection dbConnection = null;
 					PreparedStatement pst = null; // Preparar la trx
 
-					String script = "SELECT * FROM tbloperadores WHERE idoperadores = ?";
+					String script = "SELECT * FROM tlbpaquetes WHERE codigo = ?";
 
 					try {
 						dbConnection = conector.conectarBD(); // abrir la conexion
