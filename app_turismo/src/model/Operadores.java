@@ -2,9 +2,11 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -164,6 +166,40 @@ public class Operadores {
 			}
 		
 	}
+	// Consultar registros
+		public void read(int idoperadores, JTextField tipodocumento, JTextField documento, JTextField nombre, JTextField apellido,
+				JTextField direccion, JTextField correo, JTextField telefono, JTextField idvehiculo) {
+
+			Connection dbConnection = null;
+			PreparedStatement pst = null; // Preparar la trx
+
+			String script = "SELECT * FROM tbloperadores WHERE idoperadores = ?";
+
+			try {
+				dbConnection = conector.conectarBD(); // abrir la conexion
+				pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+				// parametrizar el campo
+				pst.setInt(1, idoperadores);
+				ResultSet rs = pst.executeQuery();// Almacenamiento temporal
+
+				// confirmar la operacion
+				while (rs.next()) {
+					tipodocumento.setText(rs.getString(2));
+					documento.setText(rs.getString(3));
+					nombre.setText(rs.getString(4));
+					apellido.setText(rs.getString(5));
+					direccion.setText(rs.getString(6));
+					correo.setText(rs.getString(7));
+					telefono.setText(rs.getString(8));
+					idvehiculo.setText(rs.getString(9));
+
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+
+		}
 
 	
 }

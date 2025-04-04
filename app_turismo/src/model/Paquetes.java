@@ -2,9 +2,11 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controler.Conexion;
 
@@ -287,7 +289,48 @@ public class Paquetes {
 			
 		}
 
-	
+		// Consultar registros
+				public void read(int codigo, JTextField iddestino, JTextField idorigen, JTextField fechaventa, JTextField horaventa, JTextField horasalida,
+						JTextField fechaejecucion, JTextField observaciones, JTextField idpromotores, JTextField idclientes, JTextField idagencia,
+						JTextField idvehiculo, JTextField idmedios, JTextField  precios) {
+
+					Connection dbConnection = null;
+					PreparedStatement pst = null; // Preparar la trx
+
+					String script = "SELECT * FROM tbloperadores WHERE idoperadores = ?";
+
+					try {
+						dbConnection = conector.conectarBD(); // abrir la conexion
+						pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+						// parametrizar el campo
+						pst.setInt(1, codigo);
+						ResultSet rs = pst.executeQuery();// Almacenamiento temporal
+
+						// confirmar la operacion
+						while (rs.next()) {
+							iddestino.setText(rs.getString(2));
+							idorigen.setText(rs.getString(3));
+							fechaventa.setText(rs.getString(4));
+							horaventa.setText(rs.getString(5));
+							horasalida.setText(rs.getString(6));
+							fechaejecucion.setText(rs.getString(7));
+							observaciones.setText(rs.getString(8));
+							idpromotores.setText(rs.getString(9));
+							idclientes.setText(rs.getString(10));
+							idagencia.setText(rs.getString(11));
+							idvehiculo.setText(rs.getString(12));
+							idmedios.setText(rs.getString(13));
+							precios.setText(rs.getString(14));
+						
+
+						}
+					} catch (SQLException e) {
+						System.out.println(e.getMessage());
+					}
+
+				}
+
 	
 	
 }

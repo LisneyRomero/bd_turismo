@@ -164,7 +164,8 @@ public class frmMedios extends JFrame {
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				
+				//eliminar de la base de datos
 				cr.delete(Integer.parseInt(txtmedios.getText()));
 
 			}
@@ -182,6 +183,7 @@ public class frmMedios extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+				//limpiar campos de formulario
 				txtmedios.setText("");
 				txtNombre.setText("");
 				txtObservaciones.setText("");
@@ -198,10 +200,15 @@ public class frmMedios extends JFrame {
 		contentPane.add(btnLimpiar);
 
 		JButton btnConsultar = new JButton("");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+				//consultar datos de la base de datos
 				cr.read(Integer.parseInt(txtmedios.getText()), txtNombre, txtObservaciones, txtTipo);
 			}
 		});
@@ -216,8 +223,7 @@ public class frmMedios extends JFrame {
 		addWindowListener(new WindowAdapter() {
 
 			public void windowClosing(WindowEvent e) {
-				// cuando se cierra la ventana, se libera la instanciapara permitir su
-				// reapertura
+				// cuando se cierra la ventana, se libera la instanciapara permitir su reapertura
 				instancia = null;
 
 			}
