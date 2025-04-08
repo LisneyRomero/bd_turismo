@@ -176,14 +176,14 @@ public class Companias {
 		}
 
 	}
-
+	//Actualizar registros
 	public void update(int idcompania, String razonsocial, String telefono, String direccion, String correo,
 			String fechacreacion, String web) {
 
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // prepara la trx
 
-		String script = "UPDATE tblcompanias SET razonsocial = ?, telefono = ?,direccion = ?,correo = ?,fechacreacion = ?, web = ? 	WHERE idcompania)";
+		String script = "UPDATE tblcompanias SET razonsocial = ?, telefono = ?,direccion = ?,correo = ?,fechacreacion = ?, web = ? 	WHERE idcompania = ?";
 
 		try {
 			dbConnection = conector.conectarBD(); // abrir conexion
@@ -203,9 +203,9 @@ public class Companias {
 			if (rs == JOptionPane.OK_OPTION) {
 				// ejecutar la trx
 				pst.executeUpdate();
-				JOptionPane.showConfirmDialog(null, "Registro Actualizado con Exito");
+				JOptionPane.showMessageDialog(null, "Registro Actualizado con Exito");
 			} else {
-				JOptionPane.showConfirmDialog(null, "Operacion Cancelada");
+				JOptionPane.showMessageDialog(null, "Operacion Cancelada");
 			}
 
 		} catch (SQLException e) {

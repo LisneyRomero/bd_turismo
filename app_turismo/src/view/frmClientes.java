@@ -320,6 +320,10 @@ public class frmClientes extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnActualizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnActualizar.addMouseListener(new MouseAdapter() {
 			@Override

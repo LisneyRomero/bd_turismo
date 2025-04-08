@@ -279,6 +279,15 @@ public class frmPromotores extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Actualizar datos 
+				cr.update(Integer.parseInt(txtidpromotores.getText()),Integer.parseInt(txtTipoDoc.getText()), Integer.parseInt(txtDoc.getText())  ,  txtNombre.getText()
+						,  txtApellido.getText(),txtDireccion.getText(),  txtCorreo.getText(),  txtCorreoCorp.getText()
+						,  txtFecha.getText(),  txtTelefono.getText() );
+			}
+		});
 		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);

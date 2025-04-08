@@ -218,7 +218,7 @@ public class Paquetes {
 		this.precios = precios;
 	}
 	
-	
+	//Crear registros
 	public void create (int iddestino, int idorigen, String fechaventa, String horaventa, String horasalida,
 			String fechaejecucion, String observaciones, int idpromotores, int idclientes, int idagencia,
 			int idvehiculo, int idmedios, String precios) {
@@ -332,6 +332,51 @@ public class Paquetes {
 
 				}
 
-	
+				public void update (int codigo ,int iddestino, int idorigen, String fechaventa, String horaventa, String horasalida,
+						String fechaejecucion, String observaciones, int idpromotores, int idclientes, int idagencia,
+						int idvehiculo, int idmedios, String precios) {
+						
+						Connection dbConnection = null;
+						PreparedStatement pst =null; //prepara la trx
+						
+						String script = "UPDATE tlbpaquetes SET iddestino = ?,  idorigen = ?,  fechaventa = ?,  horaventa = ?,  horasalida = ?,\r\n"
+								+ "			 fechaejecucion = ?,  observaciones = ?,  idpromotores = ?,  idclientes = ?,  idagencia = ?,\r\n"
+								+ "			 idvehiculo = ?,  idmedios = ?,  precios = ? WHERE codigo = ?";
+						
+						try { dbConnection = conector.conectarBD(); //abrir conexion
+						pst = dbConnection.prepareStatement(script); //abrir el buffer
+						
+						
+						//parametrizar los campos
+						pst.setInt(1, iddestino);
+						pst.setInt(2, idorigen);
+						pst.setString(3, fechaventa);
+						pst.setString(4,horaventa);
+						pst.setString(5, horasalida);
+						pst.setString(6, fechaejecucion);
+						pst.setString(7, observaciones);
+						pst.setInt(8,idpromotores);
+						pst.setInt(9,idclientes);
+						pst.setInt(10,idagencia);
+						pst.setInt(11,idvehiculo);
+						pst.setInt(12,idmedios);
+						pst.setString(13, precios);
+						pst.setInt(14, codigo);
+						
+								
+						int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + codigo + "?");
+
+						if (rs == JOptionPane.OK_OPTION) {
+							// ejecutar la trx
+							pst.executeUpdate();
+							JOptionPane.showMessageDialog(null, "Registro Actualizado con Exito");
+						} else {
+							JOptionPane.showConfirmDialog(null, "Operacion Cancelada");
+						}
+
+					} catch (SQLException e) {
+						System.out.println(e.getMessage());
+					}
+				}
 	
 }

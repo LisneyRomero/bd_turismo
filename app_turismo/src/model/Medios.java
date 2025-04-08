@@ -53,7 +53,7 @@ public class Medios {
 	public void setIdtipomedio(int idtipomedio) {
 		this.idtipomedio = idtipomedio;
 	}
-
+	//Crear nuevos registros en la base de datos
 	public void create(String nombre, String observaciones, int idtipomedio) {
 
 		Connection dbConnection = null;
@@ -138,5 +138,36 @@ public class Medios {
 		}
 
 	}
+	public void update(int idmedios, String nombre, String observaciones, int idtipomedio) {
 
+		Connection dbConnection = null;
+		PreparedStatement pst = null; // prepara la trx
+
+		String script = "UPDATE tblmedios SET nombre = ?,observaciones = ?,idtipomedio = ? WHERE idmedios = ?";
+
+		try {
+			dbConnection = conector.conectarBD(); // abrir conexion
+			pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+			// parametrizar los campos
+			pst.setString(1, nombre);
+			pst.setString(2, observaciones);
+			pst.setInt(3, idtipomedio);
+			pst.setInt(4, idmedios);
+			
+
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idmedios + "?");
+
+			if (rs == JOptionPane.OK_OPTION) {
+				// ejecutar la trx
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Registro Actualizado con Exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operacion Cancelada");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

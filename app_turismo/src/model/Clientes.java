@@ -245,8 +245,7 @@ public class Clientes {
 		Connection dbConnection = null;
 		PreparedStatement pst = null; // prepara la trx
 
-		String script = "UPDATE  tblclientes SET tipodocumento = ?,documento = ? ,  nombre = ?,  apellido = ?, eps,alergias = ?,  fechanacimiento  = ?,  correo = ?,  estadocivil = ?,  telefono = ?,\"\r\n"
-				+ "	 direccion WHERE idclientes";
+		String script = "UPDATE  tblclientes SET tipodocumento = ?, documento = ? ,  nombre = ?,  apellido = ?, eps = ?, alergias = ?,  fechanacimiento  = ?,  correo = ?,  estadocivil = ?,  telefono = ?, direccion  = ? WHERE idclientes = ?";
 
 		try {
 			dbConnection = conector.conectarBD(); // abrir conexion

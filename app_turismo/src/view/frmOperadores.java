@@ -196,6 +196,7 @@ public class frmOperadores extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 
 				//Limpiar campos del formulario
+				txtidoperadores.setText("");
 				txtTipoDoc.setText("");
 				txtDocumento.setText("");
 				txtNombre.setText("");
@@ -282,6 +283,17 @@ public class frmOperadores extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				//Actualizar datos
+				cr.update(Integer.parseInt(txtidoperadores.getText()),txtTipoDoc.getText(), txtDocumento.getText(), txtNombre.getText(), txtApellido.getText(),
+						txtDireccion.getText(), txtCorreo.getText(), txtTelefono.getText(),
+						Integer.parseInt(txtIdVehiculo.getText()));
+			}
+			
+		});
 		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);

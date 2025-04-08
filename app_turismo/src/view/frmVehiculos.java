@@ -262,6 +262,15 @@ public class frmVehiculos extends JFrame {
 		contentPane.add(btnConsultar);
 
 		JButton btnActualizar = new JButton("");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Actualizar registros 
+				cr.update(Integer.parseInt(txtidvehiculo.getText()),txtPlaca.getText(), txtMarca.getText(), Integer.parseInt(txtPuesto.getText()),
+						txtModelo.getText(), txtMotor.getText(), txtCategoria.getText(),
+						Integer.parseInt(txtIdTipoTransporte.getText()));
+			}
+		});
 		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);

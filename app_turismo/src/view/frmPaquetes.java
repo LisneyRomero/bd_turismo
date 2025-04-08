@@ -244,6 +244,7 @@ public class frmPaquetes extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 
 				// Limpiar campos del formulario
+				txtcodigo.setText("");
 				txtDestino.setText("");
 				txtOrigen.setText("");
 				txtVenta.setText("");
@@ -338,6 +339,18 @@ public class frmPaquetes extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Actualizar datos 
+				cr.update(Integer.parseInt(txtcodigo.getText()),Integer.parseInt(txtDestino.getText()), Integer.parseInt(txtOrigen.getText()),
+						txtVenta.getText(), txtHoraVenta.getText(), txtSalida.getText(), txtEjecucion.getText(),
+						txtaObservaciones.getText(), Integer.parseInt(txtPromotores.getText()),
+						Integer.parseInt(txtCliente.getText()), Integer.parseInt(txtAgencia.getText()),
+						Integer.parseInt(txtVehiculo.getText()), Integer.parseInt(txtMedio.getText()),
+						txtPrecio.getText());
+			}
+		});
 		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);

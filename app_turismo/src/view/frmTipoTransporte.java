@@ -194,6 +194,13 @@ public class frmTipoTransporte extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Actualizar registros
+				cr.update(Integer.parseInt(txtidtransporte.getText()),txtNombre.getText(), txtaObservaciones.getText()) ;
+			}
+		});
 		btnActualizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);

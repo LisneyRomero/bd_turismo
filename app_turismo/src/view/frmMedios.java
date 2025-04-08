@@ -215,6 +215,13 @@ public class frmMedios extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Actualizar Registros de la base de datos
+				cr.update(Integer.parseInt(txtmedios.getText()),txtNombre.getText(), txtObservaciones.getText(), Integer.parseInt(txtTipo.getText()));
+			}
+		});
 		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);

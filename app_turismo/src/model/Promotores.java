@@ -110,6 +110,7 @@ public class Promotores {
 		this.telefono = telefono;
 	}
 	
+	//Crear registros nuevos
 	public void create (int tipodocumento, int documento, String nombre, String apellido,
 			String direccion, String correopersonal, String correocorp, String fechanacimiento, String telefono) {
 		
@@ -240,4 +241,44 @@ public class Promotores {
 					
 				}
 			}
+
+			public void update (int idpromotores ,int tipodocumento, int documento, String nombre, String apellido,
+					String direccion, String correopersonal, String correocorp, String fechanacimiento, String telefono) {
+				
+					Connection dbConnection = null;
+					PreparedStatement pst =null; //prepara la trx
+					
+					String script = "UPDATE  tblpromotores SET tipodocumento = ?,  documento = ?,  nombre = ?,  apellido = ?,\r\n"
+							+ "			 direccion = ?,  correopersonal = ?,  correocorp = ?,  fechanacimiento = ?,  telefono = ? WHERE idpromotores = ? ";
+					
+					try { dbConnection = conector.conectarBD(); //abrir conexion
+					pst = dbConnection.prepareStatement(script); //abrir el buffer
+					
+					
+					//parametrizar los campos
+					pst.setInt(1, tipodocumento);
+					pst.setInt(2, documento);
+					pst.setString(3, nombre);
+					pst.setString(4, apellido);
+					pst.setString(5, direccion);
+					pst.setString(6, correopersonal);
+					pst.setString(7,  correocorp);
+					pst.setString(8, fechanacimiento);
+					pst.setString(9, telefono);
+					pst.setInt(10, idpromotores);
+					
+					int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idpromotores + "?");
+
+					if (rs == JOptionPane.OK_OPTION) {
+						// ejecutar la trx
+						pst.executeUpdate();
+						JOptionPane.showMessageDialog(null, "Registro Actualizado con Exito");
+					} else {
+						JOptionPane.showConfirmDialog(null, "Operacion Cancelada");
+					}
+
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}		
 }

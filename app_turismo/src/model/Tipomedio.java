@@ -46,6 +46,7 @@ public class Tipomedio {
 		this.observaciones = observaciones;
 	}
 
+	//Crear nuevos registros
 	public void create(String nombre, String observaciones) {
 
 		Connection dbConnection = null;
@@ -128,5 +129,35 @@ public class Tipomedio {
 				System.out.println(e.getMessage());
 			}
 
+		}
+		public void update (int idtipomedio , String nombre, String observaciones) {
+
+			Connection dbConnection = null;
+			PreparedStatement pst = null; // prepara la trx
+
+			String script = "UPDATE tbltipomedio SET nombre = ?,observaciones = ? WHERE idtipomedio = ? ";
+
+			try {
+				dbConnection = conector.conectarBD(); // abrir conexion
+				pst = dbConnection.prepareStatement(script); // abrir el buffer
+
+				// parametrizar los campos
+				pst.setString(1, nombre);
+				pst.setString(2, observaciones);
+				pst.setInt(3,idtipomedio );
+				
+				int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idtipomedio + "?");
+
+				if (rs == JOptionPane.OK_OPTION) {
+					// ejecutar la trx
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Registro Actualizado con Exito");
+				} else {
+					JOptionPane.showConfirmDialog(null, "Operacion Cancelada");
+				}
+
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
 		}
 }
