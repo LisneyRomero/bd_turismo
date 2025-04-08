@@ -210,10 +210,8 @@ public class Agencias {
 			pst.setString(4, correo);
 			pst.setString(5, web);
 			pst.setInt(6, idcompania);
-			pst.setInt(7, idagencia);
-			
-			
-			
+			pst.setInt(7, idagencia);		
+	
 
 			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idagencia + "?");
 

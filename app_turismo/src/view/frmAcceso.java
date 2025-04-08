@@ -23,6 +23,7 @@ import javax.swing.JEditorPane;
 import model.Imagen;
 import model.Promotores;
 import java.awt.Toolkit;
+import java.awt.Menu;
 
 public class frmAcceso extends JFrame {
 
@@ -118,9 +119,8 @@ public class frmAcceso extends JFrame {
 		contentPane.add(lblcontrasenia);
 		
 		Imagen imagen = new Imagen();
-		imagen.setSize(new Dimension(200, 200));
 		imagen.setRuta("/resource/logo travel.png");
-		imagen.setBounds(112, 0, 145, 134);
+		imagen.setBounds(123, 11, 123, 119);
 		contentPane.add(imagen);
 	}
 }

@@ -64,8 +64,7 @@ public class frmTipomedio extends JFrame {
 	 */
 	public frmTipomedio() {
 		setPreferredSize(new Dimension(1, 1));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\medios-de-comunicacion.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resource//medios-de-comunicacion.png")));
 		setTitle("TIPOS DE MEDIOS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 310, 358);
@@ -91,12 +90,12 @@ public class frmTipomedio extends JFrame {
 		contentPane.add(txtaObservaciones);
 
 		JButton btnregistrartipomedio = new JButton("REGISTRAR");
-		btnregistrartipomedio.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
+		btnregistrartipomedio.setIcon(new ImageIcon(getClass().getResource("/resource//registro.png")));
 		btnregistrartipomedio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+				//Registrar datos en la base de datos
 				cr.create(txtNombre.getText(), txtaObservaciones.getText());
 
 			}
@@ -130,11 +129,10 @@ public class frmTipomedio extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				frmMenu.getInstancia().setVisible(true);
+				frmMenu.getInstancia().setVisible(true);//Llamar al menu
 			}
 		});
-		btnMenu_1.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu_1.setIcon(new ImageIcon(getClass().getResource("/resource//casa.png")));
 		btnMenu_1.setFocusable(false);
 		btnMenu_1.setContentAreaFilled(false);
 		btnMenu_1.setBorder(null);
@@ -146,13 +144,15 @@ public class frmTipomedio extends JFrame {
 		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				
+				
+				//Limpiar campos de texto
+				txttiposmedios.setText("");
 				txtNombre.setText("");
 				txtaObservaciones.setText("");
 			}
 		});
-		btnLimpiar.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setIcon(new ImageIcon(getClass().getResource("/resource//rechazado.png")));
 		btnLimpiar.setContentAreaFilled(false);
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
@@ -177,12 +177,11 @@ public class frmTipomedio extends JFrame {
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				//Borrar datos en la base de datos
 				cr.delete(Integer.parseInt(txttiposmedios.getText()));
 			}
 		});
-		btnEliminar.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setIcon(new ImageIcon(getClass().getResource("/resource//borrar.png")));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
 		btnEliminar.setBounds(247, 55, 35, 29);
@@ -198,15 +197,14 @@ public class frmTipomedio extends JFrame {
 
 			}
 		});
-		btnConsultar.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
+		btnConsultar.setIcon(new ImageIcon(getClass().getResource("/resource//lupa.png")));
 		btnConsultar.setContentAreaFilled(false);
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(188, 55, 35, 29);
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
-		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);
 		btnActualizar.setBorder(null);
@@ -228,7 +226,7 @@ public class frmTipomedio extends JFrame {
 	}
 
 	// metodo singleton para que solo haya una instancia activa a la vez
-	public static frmTipomedio getInstancia() {// se cambia al nombre correspondiente
+	public static frmTipomedio getInstancia() {
 
 		// Si no existe una instancia se crea una nueva
 		if (instancia == null) {

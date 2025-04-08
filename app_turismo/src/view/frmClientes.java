@@ -70,8 +70,7 @@ public class frmClientes extends JFrame {
 	public frmClientes() {
 		setTitle("REGISTRO CLIENTES");
 
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\agregar-contacto.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resource//agregar-contacto.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 362, 730);
 		contentPane = new JPanel();
@@ -212,8 +211,7 @@ public class frmClientes extends JFrame {
 			}
 		});
 		btnRegistrar.setBackground(new Color(240, 234, 244));
-		btnRegistrar.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
+		btnRegistrar.setIcon(new ImageIcon(getClass().getResource("/resource//registro.png")));
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnRegistrar.setBounds(118, 603, 110, 32);
@@ -245,8 +243,7 @@ public class frmClientes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnLimpiar.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setIcon(new ImageIcon(getClass().getResource("/resource//rechazado.png")));
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
 		btnLimpiar.setBounds(227, 605, 34, 29);
@@ -267,8 +264,7 @@ public class frmClientes extends JFrame {
 
 			}
 		});
-		btnMenu.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu.setIcon(new ImageIcon(getClass().getResource("/resource//casa.png")));
 		btnMenu.setFocusable(false);
 		btnMenu.setContentAreaFilled(false);
 		btnMenu.setBorder(null);
@@ -299,14 +295,14 @@ public class frmClientes extends JFrame {
 			}
 		});
 		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEliminar.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setIcon(new ImageIcon(getClass().getResource("/resource//borrar.png")));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
 		btnEliminar.setBounds(221, 59, 34, 29);
 		contentPane.add(btnEliminar);
 
 		JButton btnConsultar = new JButton("");
+		btnConsultar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -317,15 +313,26 @@ public class frmClientes extends JFrame {
 
 			}
 		});
-		btnConsultar.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
+		btnConsultar.setIcon(new ImageIcon(getClass().getResource("/resource//lupa.png")));
 		btnConsultar.setContentAreaFilled(false);
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(146, 59, 35, 29);
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
-		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Actualizar datos de la base de datos
+				cr.update(Integer.parseInt(txtidclientes.getText()),txtTipo.getText(), Integer.parseInt(txtDocumento.getText()), txtNombre.getText(),
+						txtApellido.getText(), txtEps.getText(), txtAlergias.getText(), txtFecha.getText(),
+						txtCorreo.getText(), txtEstado.getText(), txtTelefono.getText(), txtDireccion.getText());
+				
+				
+			}
+		});
+		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);
 		btnActualizar.setBorder(null);

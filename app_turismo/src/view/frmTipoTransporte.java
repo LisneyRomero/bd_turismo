@@ -58,8 +58,7 @@ public class frmTipoTransporte extends JFrame {
 	 */
 	public frmTipoTransporte() {
 		setTitle("REGISTRO DE TRANSPORTE");
-		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\autobus.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resource//autobus.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 323, 287);
 		contentPane = new JPanel();
@@ -109,12 +108,12 @@ public class frmTipoTransporte extends JFrame {
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnRegistrar.setBackground(new Color(240, 234, 244));
-		btnRegistrar.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
+		btnRegistrar.setIcon(new ImageIcon(getClass().getResource("/resource//registro.png")));
 		btnRegistrar.setBounds(102, 205, 117, 27);
 		contentPane.add(btnRegistrar);
 
 		JButton btnMenu = new JButton("");
+		btnMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMenu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -122,8 +121,7 @@ public class frmTipoTransporte extends JFrame {
 				frmMenu.getInstancia().setVisible(true);// Llamar al menu
 			}
 		});
-		btnMenu.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu.setIcon(new ImageIcon(getClass().getResource("/resource//casa.png")));
 		btnMenu.setFocusable(false);
 		btnMenu.setContentAreaFilled(false);
 		btnMenu.setBorder(null);
@@ -131,17 +129,18 @@ public class frmTipoTransporte extends JFrame {
 		contentPane.add(btnMenu);
 
 		JButton btnLimpiar = new JButton("");
+		btnLimpiar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
 				// Limpiar campos del formulario
+				txtidtransporte.setText("");
 				txtNombre.setText("");
 				txtaObservaciones.setText("");
 			}
 		});
-		btnLimpiar.setIcon(new ImageIcon(
-				"C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar.setIcon(new ImageIcon(getClass().getResource("/resource//rechazado.png")));
 		btnLimpiar.setContentAreaFilled(false);
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(240, 234, 244));
@@ -159,6 +158,7 @@ public class frmTipoTransporte extends JFrame {
 		contentPane.add(txtidtransporte);
 
 		JButton btnEliminar = new JButton("");
+		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -167,14 +167,14 @@ public class frmTipoTransporte extends JFrame {
 				cr.delete(Integer.parseInt(txtidtransporte.getText()));
 			}
 		});
-		btnEliminar.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setIcon(new ImageIcon(getClass().getResource("/resource//borrar.png")));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
 		btnEliminar.setBounds(249, 54, 35, 29);
 		contentPane.add(btnEliminar);
 
 		JButton btnConsultar = new JButton("");
+		btnConsultar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -187,15 +187,15 @@ public class frmTipoTransporte extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnConsultar.setIcon(
-				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
+		btnConsultar.setIcon(new ImageIcon(getClass().getResource("/resource//lupa.png")));
 		btnConsultar.setContentAreaFilled(false);
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(184, 54, 35, 29);
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
-		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);
 		btnActualizar.setBorder(null);

@@ -23,6 +23,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Cursor;
 import javax.swing.ImageIcon;
+import java.awt.Dimension;
 
 public class frmMenu extends JFrame {
 
@@ -54,7 +55,7 @@ public class frmMenu extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resource/casa.png")));//mostrar el icono
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 291, 364);
+		setBounds(100, 100, 533, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(243, 238, 247));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,21 +67,26 @@ public class frmMenu extends JFrame {
 		this.setResizable(false); // No editable el tamaño del formulario
 
 		lblTitle = new JLabel("FORMULARIOS DE REGISTRO");
-		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTitle.setForeground(new Color(83, 48, 83));
+		lblTitle.setFont(new Font("Calibri", Font.BOLD, 20));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setBounds(0, 11, 265, 32);
+		lblTitle.setBounds(0, 11, 517, 32);
 		contentPane.add(lblTitle);
 
-		JLabel lblAgencias = new JLabel("Registro de Agencias...................................................");
-		lblAgencias.setBounds(10, 69, 213, 14);
+		JLabel lblAgencias = new JLabel("AGENCIAS");
+		lblAgencias.setForeground(new Color(83, 48, 83));
+		lblAgencias.setFont(new Font("Calibri", Font.BOLD, 12));
+		lblAgencias.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAgencias.setBounds(31, 141, 59, 20);
 		contentPane.add(lblAgencias);
 
 		JButton btnIrAgencias = new JButton("");
+		btnIrAgencias.setForeground(new Color(83, 48, 83));
 		btnIrAgencias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnIrAgencias.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png"))); //para que los iconos se sigan mostrando
+		btnIrAgencias.setIcon(new ImageIcon("C:\\Users\\Lisney\\git\\bd_turismo\\app_turismo\\src\\resource\\agente-de-viajes.png")); //para que los iconos se sigan mostrando
 		btnIrAgencias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAgencias.setBackground(new Color(243, 238, 247));
 		btnIrAgencias.setBorderPainted(false);
@@ -93,16 +99,20 @@ public class frmMenu extends JFrame {
 
 			}
 		});
-		btnIrAgencias.setBounds(223, 65, 43, 23);
+		btnIrAgencias.setBounds(25, 71, 64, 64);
 		contentPane.add(btnIrAgencias);
 
 		JLabel lblClientes = new JLabel(
-				"Registro de Clientes.........................................................");
-		lblClientes.setBounds(10, 94, 213, 14);
+				"CLIENTES");
+		lblClientes.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblClientes.setFont(new Font("Calibri", Font.BOLD, 12));
+		lblClientes.setForeground(new Color(83, 48, 83));
+		lblClientes.setHorizontalAlignment(SwingConstants.CENTER);
+		lblClientes.setBounds(113, 141, 69, 20);
 		contentPane.add(lblClientes);
 
 		JButton btnIrClientes = new JButton("");
-		btnIrClientes.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
+		btnIrClientes.setIcon(new ImageIcon("C:\\Users\\Lisney\\git\\bd_turismo\\app_turismo\\src\\resource\\customer-review.png"));
 		btnIrClientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrClientes.setBackground(new Color(243, 238, 247));
 		btnIrClientes.setBorderPainted(false);
@@ -115,15 +125,20 @@ public class frmMenu extends JFrame {
 
 			}
 		});
-		btnIrClientes.setBounds(223, 90, 43, 23);
+		btnIrClientes.setBounds(113, 71, 64, 64);
 		contentPane.add(btnIrClientes);
 
-		JLabel lblCompanias = new JLabel("Registro de Compañias...................................");
-		lblCompanias.setBounds(10, 119, 213, 14);
+		JLabel lblCompanias = new JLabel("COMPAÑIAS");
+		lblCompanias.setPreferredSize(new Dimension(100, 30));
+		lblCompanias.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblCompanias.setFont(new Font("Calibri", Font.BOLD, 12));
+		lblCompanias.setForeground(new Color(83, 48, 83));
+		lblCompanias.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCompanias.setBounds(208, 141, 70, 20);
 		contentPane.add(lblCompanias);
 
 		JButton btnIrCompanias = new JButton("");
-		btnIrCompanias.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
+		btnIrCompanias.setIcon(new ImageIcon("C:\\Users\\Lisney\\git\\bd_turismo\\app_turismo\\src\\resource\\edificios.png"));
 		btnIrCompanias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrCompanias.setBackground(new Color(243, 238, 247));
 		btnIrCompanias.setBorderPainted(false);
@@ -136,15 +151,20 @@ public class frmMenu extends JFrame {
 
 			}
 		});
-		btnIrCompanias.setBounds(223, 115, 43, 23);
+		btnIrCompanias.setBounds(208, 71, 64, 64);
 		contentPane.add(btnIrCompanias);
 
-		JLabel lblMedios = new JLabel("Registro de Medios..........................................");
-		lblMedios.setBounds(10, 144, 213, 14);
+		JLabel lblMedios = new JLabel("MEDIOS");
+		lblMedios.setPreferredSize(new Dimension(100, 30));
+		lblMedios.setForeground(new Color(83, 48, 83));
+		lblMedios.setFont(new Font("Calibri", Font.BOLD, 12));
+		lblMedios.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblMedios.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMedios.setBounds(328, 141, 51, 20);
 		contentPane.add(lblMedios);
 
 		JButton btnIrMedios = new JButton("");
-		btnIrMedios.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
+		btnIrMedios.setIcon(new ImageIcon("C:\\Users\\Lisney\\git\\bd_turismo\\app_turismo\\src\\resource\\medios-de-comunicacion-en-masa.png"));
 		btnIrMedios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrMedios.setBackground(new Color(243, 238, 247));
 		btnIrMedios.setBorderPainted(false);
@@ -156,16 +176,20 @@ public class frmMenu extends JFrame {
 
 			}
 		});
-		btnIrMedios.setBounds(223, 140, 43, 23);
+		btnIrMedios.setBounds(318, 71, 64, 64);
 		contentPane.add(btnIrMedios);
 
 		JLabel lblOperadores = new JLabel(
-				"Registro de Operadores...........................................................");
-		lblOperadores.setBounds(10, 169, 213, 14);
+				"OPERADORES");
+		lblOperadores.setForeground(new Color(83, 48, 83));
+		lblOperadores.setFont(new Font("Calibri", Font.BOLD, 12));
+		lblOperadores.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblOperadores.setHorizontalAlignment(SwingConstants.CENTER);
+		lblOperadores.setBounds(423, 141, 75, 20);
 		contentPane.add(lblOperadores);
 
 		JButton btnIrOperadores = new JButton("");
-		btnIrOperadores.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
+		btnIrOperadores.setIcon(new ImageIcon("C:\\Users\\Lisney\\git\\bd_turismo\\app_turismo\\src\\resource\\grupo.png"));
 		btnIrOperadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrOperadores.setBackground(new Color(243, 238, 247));
 		btnIrOperadores.setBorderPainted(false);
@@ -182,15 +206,20 @@ public class frmMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnIrOperadores.setBounds(223, 165, 43, 23);
+		btnIrOperadores.setBounds(426, 73, 64, 64);
 		contentPane.add(btnIrOperadores);
 
-		JLabel lblPaquetes = new JLabel("Registro de Paquetes.....................................");
-		lblPaquetes.setBounds(10, 194, 213, 14);
+		JLabel lblPaquetes = new JLabel("PAQUETES");
+		lblPaquetes.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblPaquetes.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPaquetes.setFont(new Font("Calibri", Font.BOLD, 12));
+		lblPaquetes.setForeground(new Color(83, 48, 83));
+		lblPaquetes.setBounds(24, 254, 70, 20);
 		contentPane.add(lblPaquetes);
 
 		JButton btnIrPaquetes = new JButton("");
-		btnIrPaquetes.setIcon(new ImageIcon(getClass().getResource("/resource/circulo-de-flecha.png")));
+		//btnIrPaquetes.setIcon(new ImageIcon("C:\\Users\\Lisney\\git\\bd_turismo\\app_turismo\\src\\resource\\avion.png"));
+		btnIrPaquetes.setIcon(new ImageIcon(getClass().getResource("/resource/avion.png")));
 		btnIrPaquetes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrPaquetes.setBackground(new Color(243, 238, 247));
 		btnIrPaquetes.setBorderPainted(false);
@@ -203,11 +232,14 @@ public class frmMenu extends JFrame {
 
 			}
 		});
-		btnIrPaquetes.setBounds(223, 190, 43, 23);
+		btnIrPaquetes.setBounds(25, 188, 64, 64);
 		contentPane.add(btnIrPaquetes);
 
-		JLabel lblPromotores = new JLabel("Registro de Promotores..........................");
-		lblPromotores.setBounds(10, 219, 213, 14);
+		JLabel lblPromotores = new JLabel("PROMOTORES");
+		lblPromotores.setFont(new Font("Calibri", Font.BOLD, 12));
+		lblPromotores.setForeground(new Color(83, 48, 83));
+		lblPromotores.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPromotores.setBounds(125, 253, 75, 20);
 		contentPane.add(lblPromotores);
 
 		JButton btnIrPromotores = new JButton("");
@@ -228,11 +260,11 @@ public class frmMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnIrPromotores.setBounds(223, 215, 43, 23);
+		btnIrPromotores.setBounds(128, 187, 64, 64);
 		contentPane.add(btnIrPromotores);
 
 		JLabel lblTipoMedio = new JLabel("Registro de Tipos de Medios................................");
-		lblTipoMedio.setBounds(10, 246, 213, 14);
+		lblTipoMedio.setBounds(261, 304, 213, 14);
 		contentPane.add(lblTipoMedio);
 
 		JButton btnTipoMedio = new JButton("");
@@ -248,11 +280,11 @@ public class frmMenu extends JFrame {
 				frmTipomedio.getInstancia().setVisible(true);// llamar al formulario de registro de tipos de medios
 			}
 		});
-		btnTipoMedio.setBounds(223, 240, 43, 23);
+		btnTipoMedio.setBounds(474, 298, 43, 23);
 		contentPane.add(btnTipoMedio);
 
 		JLabel lblTipoTransporte = new JLabel("Registro de Tipos de Transporte....................");
-		lblTipoTransporte.setBounds(10, 271, 213, 14);
+		lblTipoTransporte.setBounds(261, 329, 213, 14);
 		contentPane.add(lblTipoTransporte);
 
 		JButton btnIrTransporte = new JButton("");
@@ -268,11 +300,11 @@ public class frmMenu extends JFrame {
 
 			}
 		});
-		btnIrTransporte.setBounds(223, 267, 43, 23);
+		btnIrTransporte.setBounds(474, 325, 43, 23);
 		contentPane.add(btnIrTransporte);
 
 		JLabel lblVehiculo = new JLabel("Registro de Vehiculos.....................................");
-		lblVehiculo.setBounds(10, 296, 213, 14);
+		lblVehiculo.setBounds(261, 354, 213, 14);
 		contentPane.add(lblVehiculo);
 
 		JButton btnIrVehiculos = new JButton("");
@@ -288,7 +320,7 @@ public class frmMenu extends JFrame {
 				frmVehiculos.getInstancia().setVisible(true);// llamar al formulario de registro de Vehiculos
 			}
 		});
-		btnIrVehiculos.setBounds(223, 292, 43, 23);
+		btnIrVehiculos.setBounds(474, 350, 43, 23);
 		contentPane.add(btnIrVehiculos);
 
 		// permite que la ventana pueda abrirse nuevamente

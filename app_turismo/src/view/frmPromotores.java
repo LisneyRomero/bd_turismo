@@ -63,7 +63,7 @@ public class frmPromotores extends JFrame {
 	public frmPromotores() {
 		setResizable(false);
 		setTitle("REGISTRO DE PROMOTORES");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\nueva-cuenta.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resource//nueva-cuenta.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 506);
 		contentPane = new JPanel();
@@ -179,10 +179,9 @@ public class frmPromotores extends JFrame {
 		JButton btnRegistrar = new JButton("REGISTRAR");
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e) {				
 				
-				
-				
+				// Registrar nuevos datos en la base de datos
 				cr.create(Integer.parseInt(txtTipoDoc.getText()), Integer.parseInt(txtDoc.getText())  ,  txtNombre.getText()
 						,  txtApellido.getText(),txtDireccion.getText(),  txtCorreo.getText(),  txtCorreoCorp.getText()
 						,  txtFecha.getText(),  txtTelefono.getText());	
@@ -194,13 +193,13 @@ public class frmPromotores extends JFrame {
 		btnRegistrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrar.setBackground(new Color(240, 234, 244));
 		btnRegistrar.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btnRegistrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\registro.png"));
+		btnRegistrar.setIcon(new ImageIcon(getClass().getResource("/resource//registro.png")));
 		btnRegistrar.setBounds(148, 403, 123, 33);
 		contentPane.add(btnRegistrar);
 		
 		JButton btnMenu_1 = new JButton("");
 		btnMenu_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnMenu_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\casa.png"));
+		btnMenu_1.setIcon(new ImageIcon(getClass().getResource("/resource//casa.png")));
 		btnMenu_1.setFocusable(false);
 		btnMenu_1.setContentAreaFilled(false);
 		btnMenu_1.setBorder(null);
@@ -212,6 +211,8 @@ public class frmPromotores extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				//Limpiar campos de texto
+				txtidpromotores.setText("");
 				txtTipoDoc.setText("");
 				txtDoc.setText("");
 				txtNombre.setText("");
@@ -227,7 +228,7 @@ public class frmPromotores extends JFrame {
 			}
 		});
 		btnLimpiar_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnLimpiar_1.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\rechazado.png"));
+		btnLimpiar_1.setIcon(new ImageIcon(getClass().getResource("/resource//rechazado.png")));
 		btnLimpiar_1.setContentAreaFilled(false);
 		btnLimpiar_1.setBorder(null);
 		btnLimpiar_1.setBackground(new Color(240, 234, 244));
@@ -250,11 +251,12 @@ public class frmPromotores extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				//Borrar datos de la base de datos 
 				cr.delete(Integer.parseInt(txtidpromotores.getText()));
 				
 			}
 		});
-		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
+		btnEliminar.setIcon(new ImageIcon(getClass().getResource("/resource//borrar.png")));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
 		btnEliminar.setBounds(262, 70, 33, 29);
@@ -265,18 +267,19 @@ public class frmPromotores extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				//Consultar datos de la base de datos 
 				cr.read(Integer.parseInt(txtidpromotores.getText()),txtTipoDoc,txtDoc,txtNombre,txtApellido,txtDireccion,txtCorreo,
 				txtCorreoCorp,txtFecha,	txtTelefono);
 			}
 		});
-		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\lupa.png"));
+		btnConsultar.setIcon(new ImageIcon(getClass().getResource("/resource//lupa.png")));
 		btnConsultar.setContentAreaFilled(false);
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(191, 70, 35, 29);
 		contentPane.add(btnConsultar);
 		
 		JButton btnActualizar = new JButton("");
-		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setIcon(new ImageIcon(getClass().getResource("/resource//actualizar.png")));
 		btnActualizar.setContentAreaFilled(false);
 		btnActualizar.setBorderPainted(false);
 		btnActualizar.setBorder(null);
