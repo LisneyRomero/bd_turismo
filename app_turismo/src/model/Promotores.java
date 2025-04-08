@@ -6,10 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controler.Conexion;
+import view.frmMenu;
 
 public class Promotores {
 
@@ -213,5 +215,29 @@ public class Promotores {
 
 			}
 	
-			
+			public void controlAcceso (int user, String pass ) {
+				Connection dbConnection = null;
+				PreparedStatement pst = null; // Preparar la trx
+				
+				String script = "SELECT * FROM tblpromotores WHERE documento = ? and contrasena = ?";
+				
+				try {
+					dbConnection = conector.conectarBD(); // abrir la conexion
+					pst = dbConnection.prepareStatement(script); // abrir el buffer
+					
+					pst.setInt(1, user);
+					pst.setString(2, pass);
+					ResultSet rs = pst.executeQuery();//Almacenamiento temporal
+					
+					while (rs.next()) {
+						frmMenu menu = new frmMenu();
+						menu.show();
+					}
+					
+					
+				}catch (SQLException e) {
+					System.out.println(e.getMessage());
+					
+				}
+			}
 }

@@ -171,7 +171,7 @@ public class frmTipoTransporte extends JFrame {
 				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
-		btnEliminar.setBounds(224, 54, 35, 29);
+		btnEliminar.setBounds(249, 54, 35, 29);
 		contentPane.add(btnEliminar);
 
 		JButton btnConsultar = new JButton("");
@@ -193,6 +193,14 @@ public class frmTipoTransporte extends JFrame {
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(184, 54, 35, 29);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setContentAreaFilled(false);
+		btnActualizar.setBorderPainted(false);
+		btnActualizar.setBorder(null);
+		btnActualizar.setBounds(215, 54, 35, 29);
+		contentPane.add(btnActualizar);
 
 		// permite que la ventana pueda abrirse nuevamente
 		addWindowListener(new WindowAdapter() {

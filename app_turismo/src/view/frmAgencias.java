@@ -245,7 +245,7 @@ public class frmAgencias extends JFrame {
 		btnEliminar.setIcon(
 				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEliminar.setBounds(190, 83, 35, 29);
+		btnEliminar.setBounds(216, 83, 35, 29);
 		btnEliminar.setContentAreaFilled(false);
 		contentPane.add(btnEliminar);
 		
@@ -266,6 +266,22 @@ public class frmAgencias extends JFrame {
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(149, 83, 35, 29);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setBorderPainted(false);
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				cr.update(Integer.parseInt(txtidagencia.getText()),txtNombre.getText(), txtTelefono.getText(), txtDireccion.getText(), txtCorreo.getText(),
+						txtWeb.getText(), Integer.parseInt(txtCompania.getText()));
+			}
+		});
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setContentAreaFilled(false);
+		btnActualizar.setBorder(null);
+		btnActualizar.setBounds(183, 83, 35, 29);
+		contentPane.add(btnActualizar);
 
 		// permite que la ventana pueda abrirse nuevamente
 		addWindowListener(new WindowAdapter() { 

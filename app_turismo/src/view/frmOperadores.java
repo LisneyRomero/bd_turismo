@@ -263,7 +263,7 @@ public class frmOperadores extends JFrame {
 				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
-		btnEliminar.setBounds(224, 80, 33, 29);
+		btnEliminar.setBounds(260, 80, 33, 29);
 		contentPane.add(btnEliminar);
 
 		JButton btnConsultar = new JButton("");
@@ -286,10 +286,15 @@ public class frmOperadores extends JFrame {
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(184, 80, 35, 29);
 		contentPane.add(btnConsultar);
-		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[] { lblTitle, lbltipoDocumento,
-				txtTipoDoc, lblDocumento, txtDocumento, lblNombre, txtNombre, lblApellido, txtApellido, lblDireccion,
-				txtDireccion, lblCorreo, txtCorreo, txtTelefono, lblTelefono, lblIdvehiculo, txtIdVehiculo,
-				btnRegistrar, btnLimpiar, btnMenu, lblIdOperadores, txtidoperadores, btnEliminar, btnConsultar }));
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setContentAreaFilled(false);
+		btnActualizar.setBorderPainted(false);
+		btnActualizar.setBorder(null);
+		btnActualizar.setBounds(220, 81, 35, 29);
+		contentPane.add(btnActualizar);
+		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblTitle, lbltipoDocumento, txtTipoDoc, lblDocumento, txtDocumento, lblNombre, txtNombre, lblApellido, txtApellido, lblDireccion, txtDireccion, lblCorreo, txtCorreo, txtTelefono, lblTelefono, lblIdvehiculo, txtIdVehiculo, btnRegistrar, btnLimpiar, btnMenu, lblIdOperadores, txtidoperadores, btnEliminar, btnConsultar, btnActualizar}));
 
 		// permite que la ventana pueda abrirse nuevamente
 		addWindowListener(new WindowAdapter() {

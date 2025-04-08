@@ -48,6 +48,7 @@ public class frmCompanias extends JFrame {
 	private JLabel lblidCompanias;
 	private JTextField txtidcompanias;
 	private JButton btnEliminar;
+	private JButton btnActualizar;
 
 	/**
 	 * Launch the application.
@@ -248,7 +249,7 @@ public class frmCompanias extends JFrame {
 		btnEliminar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
-		btnEliminar.setBounds(201, 71, 35, 29);
+		btnEliminar.setBounds(232, 71, 35, 29);
 		contentPane.add(btnEliminar);
 		
 		JButton btnConsultar = new JButton("");
@@ -266,6 +267,14 @@ public class frmCompanias extends JFrame {
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(163, 71, 35, 29);
 		contentPane.add(btnConsultar);
+		
+		btnActualizar = new JButton("");
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setContentAreaFilled(false);
+		btnActualizar.setBorderPainted(false);
+		btnActualizar.setBorder(null);
+		btnActualizar.setBounds(198, 72, 35, 29);
+		contentPane.add(btnActualizar);
 	
 		// permite que la ventana pueda abrirse nuevamente
 		addWindowListener(new WindowAdapter() { 

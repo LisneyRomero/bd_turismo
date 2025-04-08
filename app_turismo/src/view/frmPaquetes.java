@@ -317,7 +317,7 @@ public class frmPaquetes extends JFrame {
 				new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\borrar.png"));
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorder(null);
-		btnEliminar.setBounds(174, 101, 40, 29);
+		btnEliminar.setBounds(211, 101, 40, 29);
 		contentPane.add(btnEliminar);
 
 		JButton btnConsultar = new JButton("");
@@ -342,6 +342,14 @@ public class frmPaquetes extends JFrame {
 		btnConsultar.setBorder(null);
 		btnConsultar.setBounds(138, 101, 35, 29);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\actualizar.png"));
+		btnActualizar.setContentAreaFilled(false);
+		btnActualizar.setBorderPainted(false);
+		btnActualizar.setBorder(null);
+		btnActualizar.setBounds(178, 101, 35, 29);
+		contentPane.add(btnActualizar);
 		
 		
 
