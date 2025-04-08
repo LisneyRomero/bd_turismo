@@ -86,7 +86,7 @@ public class frmMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnIrAgencias.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\agente-de-viajes.png")); //para que los iconos se sigan mostrando
+		btnIrAgencias.setIcon(new ImageIcon(getClass().getResource("/resource//agente-de-viajes.png"))); //para que los iconos se sigan mostrando
 		btnIrAgencias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAgencias.setBackground(new Color(243, 238, 247));
 		btnIrAgencias.setBorderPainted(false);
@@ -112,7 +112,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblClientes);
 
 		JButton btnIrClientes = new JButton("");
-		btnIrClientes.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\customer-review.png"));
+		btnIrClientes.setIcon(new ImageIcon(getClass().getResource("/resource//customer-review.png")));
 		btnIrClientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrClientes.setBackground(new Color(243, 238, 247));
 		btnIrClientes.setBorderPainted(false);
@@ -138,7 +138,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblCompanias);
 
 		JButton btnIrCompanias = new JButton("");
-		btnIrCompanias.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\edificios.png"));
+		btnIrCompanias.setIcon(new ImageIcon(getClass().getResource("/resource//edificios.png")));
 		btnIrCompanias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrCompanias.setBackground(new Color(243, 238, 247));
 		btnIrCompanias.setBorderPainted(false);
@@ -164,7 +164,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblMedios);
 
 		JButton btnIrMedios = new JButton("");
-		btnIrMedios.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\medios-de-comunicacion-en-masa.png"));
+		btnIrMedios.setIcon(new ImageIcon(getClass().getResource("/resource//medios-de-comunicacion-en-masa.png")));
 		btnIrMedios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrMedios.setBackground(new Color(243, 238, 247));
 		btnIrMedios.setBorderPainted(false);
@@ -189,7 +189,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblOperadores);
 
 		JButton btnIrOperadores = new JButton("");
-		btnIrOperadores.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\personas.png"));
+		btnIrOperadores.setIcon(new ImageIcon(getClass().getResource("/resource//personas.png")));
 		btnIrOperadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrOperadores.setBackground(new Color(243, 238, 247));
 		btnIrOperadores.setBorderPainted(false);
@@ -243,7 +243,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblPromotores);
 
 		JButton btnIrPromotores = new JButton("");
-		btnIrPromotores.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\grupo.png"));
+		btnIrPromotores.setIcon(new ImageIcon(getClass().getResource("/resource//grupo.png")));
 		btnIrPromotores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrPromotores.setBackground(new Color(243, 238, 247));
 		btnIrPromotores.setBorderPainted(false);
@@ -272,7 +272,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblTipoMedio);
 
 		JButton btnTipoMedio = new JButton("");
-		btnTipoMedio.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\medios c.png"));
+		btnTipoMedio.setIcon(new ImageIcon(getClass().getResource("/resource//medios c.png")));
 		btnTipoMedio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnTipoMedio.setBackground(new Color(243, 238, 247));
 		btnTipoMedio.setBorderPainted(false);
@@ -297,7 +297,7 @@ public class frmMenu extends JFrame {
 
 		JButton btnIrTransporte = new JButton("");
 		btnIrTransporte.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnIrTransporte.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\transporte.png"));
+		btnIrTransporte.setIcon(new ImageIcon(getClass().getResource("/resource//transporte.png")));
 		btnIrTransporte.setBackground(new Color(243, 238, 247));
 		btnIrTransporte.setBorderPainted(false);
 		btnIrTransporte.setBorder(null);
@@ -320,7 +320,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblVehiculo);
 
 		JButton btnIrVehiculos = new JButton("");
-		btnIrVehiculos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\viaje.png"));
+		btnIrVehiculos.setIcon(new ImageIcon(getClass().getResource("/resource//viaje.png")));
 		btnIrVehiculos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrVehiculos.setBackground(new Color(243, 238, 247));
 		btnIrVehiculos.setBorderPainted(false);
