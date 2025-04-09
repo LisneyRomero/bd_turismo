@@ -24,6 +24,8 @@ import model.Imagen;
 import model.Promotores;
 import java.awt.Toolkit;
 import java.awt.Menu;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class frmAcceso extends JFrame {
 
@@ -53,9 +55,9 @@ public class frmAcceso extends JFrame {
 	 * Create the frame.
 	 */
 	public frmAcceso() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\APRENDIZ\\git\\formulariosturismo\\app_turismo\\src\\resource\\acceso.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resource//acceso.png")));
 		setTitle("INICIAR SESION");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 386, 341);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(244, 236, 244));
@@ -85,13 +87,19 @@ public class frmAcceso extends JFrame {
 		contentPane.add(txtPass);
 		
 		JButton btnIngresar = new JButton("INGRESAR");
+		btnIngresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnIngresar.setForeground(new Color(83, 48, 83));
 		btnIngresar.setFont(new Font("Cambria", Font.PLAIN, 12));
 		btnIngresar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				
-				btnIngresar.setBackground(new Color (242,235,242));
+				//btnIngresar.setBackground(new Color (242,235,242));
+				btnIngresar.setBackground(new Color (253, 250, 255));
+							
 				
 			}
 			@Override

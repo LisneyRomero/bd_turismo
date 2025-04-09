@@ -84,6 +84,7 @@ public class frmTipomedio extends JFrame {
 		JLabel lblObservaciones = new JLabel("Observaciones:");
 		lblObservaciones.setBounds(28, 150, 114, 20);
 		contentPane.add(lblObservaciones);
+		
 		JTextArea txtaObservaciones = new JTextArea();
 		txtaObservaciones.setLineWrap(true);
 		txtaObservaciones.setBounds(28, 169, 221, 70);

@@ -226,9 +226,7 @@ public class Paquetes {
 			Connection dbConnection = null;
 			PreparedStatement pst =null; //prepara la trx
 			
-			String script = "INSERT INTO tlbpaquetes ( iddestino,  idorigen,  fechaventa,  horaventa,  horasalida,\r\n"
-					+ "			 fechaejecucion,  observaciones,  idpromotores,  idclientes,  idagencia,\r\n"
-					+ "			 idvehiculo,  idmedios,  precios ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String script = "INSERT INTO tlbpaquetes ( iddestino,  idorigen,  fechaventa,  horaventa,  horasalida,fechaejecucion,  observaciones,  idpromotores,  idclientes,  idagencia,idvehiculo,  idmedios,  precios ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
 			try { dbConnection = conector.conectarBD(); //abrir conexion
 			pst = dbConnection.prepareStatement(script); //abrir el buffer

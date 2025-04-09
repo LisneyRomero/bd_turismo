@@ -98,7 +98,8 @@ public class Agencias {
 	public void setIdcompania(int idcompania) {
 		this.idcompania = idcompania;
 	}
-
+	
+//Crear nuevos registros
 	public void create(String nombre, String telefono, String direccion, String correo, String web, int idcompania) {
 
 		Connection dbConnection = null;

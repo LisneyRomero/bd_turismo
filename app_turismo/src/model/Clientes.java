@@ -134,7 +134,7 @@ public class Clientes {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-
+//Crear nuevos registros
 	public void create(String tipodocumento, int documento, String nombre, String apellido, String eps, String alergias,
 			String fechanacimiento, String correo, String estadocivil, String telefono, String direccion) {
 

@@ -99,6 +99,8 @@ public class frmPaquetes extends JFrame {
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				txtaObservaciones = new JTextArea();
 
 				// Registrar nuevos datos en la base de datos
 				cr.create(Integer.parseInt(txtDestino.getText()), Integer.parseInt(txtOrigen.getText()),
@@ -131,6 +133,7 @@ public class frmPaquetes extends JFrame {
 		contentPane.add(lblVenta);
 
 		txtVenta = new JTextField();
+		txtVenta.setToolTipText("AAAA-MM-DD");
 		txtVenta.setColumns(10);
 		txtVenta.setBorder(new EmptyBorder(1, 1, 1, 1));
 		txtVenta.setBounds(359, 141, 111, 20);

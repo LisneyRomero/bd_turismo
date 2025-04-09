@@ -15,7 +15,9 @@ import view.frmMenu;
 
 public class Promotores {
 
+	//se instancia la clase conexion
 	Conexion conector = new Conexion();
+	
 	
 	public int tipodocumento;
 	public int documento;
@@ -137,7 +139,6 @@ public class Promotores {
 			
 			
 			
-			
 			//ejecutar la trx
 			pst.executeUpdate();
 			
@@ -215,7 +216,7 @@ public class Promotores {
 				}
 
 			}
-	
+			//Acceso de promotores al menu
 			public void controlAcceso (int user, String pass ) {
 				Connection dbConnection = null;
 				PreparedStatement pst = null; // Preparar la trx
@@ -241,7 +242,7 @@ public class Promotores {
 					
 				}
 			}
-
+			//actualizar registros 
 			public void update (int idpromotores ,int tipodocumento, int documento, String nombre, String apellido,
 					String direccion, String correopersonal, String correocorp, String fechanacimiento, String telefono) {
 				
